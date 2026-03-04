@@ -1,12 +1,3 @@
-:root {
-  --cabin: "Cabin", sans-serif;
-  --cabin-condensed: "Cabin Condensed", sans-serif;
-  --cabin-semi-condensed: "Cabin SemiCondensed", sans-serif;
-  --lato: "Lato", sans-serif;
-  --pixl1: "Pixelify Sans", sans-serif;
-  --pixel2: "Press Start 2P", sans-serif;
-}
-
 /* cabin */
 @font-face {
   font-family: "Cabin";
@@ -288,12 +279,13 @@
 typography 
 *****/
 
-.title {
-  font-family: "jetbrains-mono", sans-serif;
-}
-
-.text {
-  font-family: "oswald", sans-serif;
+:root {
+  --cabin: "Cabin", sans-serif;
+  --cabin-condensed: "Cabin Condensed", sans-serif;
+  --cabin-semi-condensed: "Cabin SemiCondensed", sans-serif;
+  --lato: "Lato", sans-serif;
+  --pixel1: "Pixelify Sans", sans-serif;
+  --pixel2: "Press Start 2P", sans-serif;
 }
 
 body {
@@ -307,7 +299,7 @@ body {
   font-size: 2.44rem;
   line-height: 1.55;
   letter-spacing: 0.015em;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .dp-md {

@@ -23,9 +23,28 @@ main {
 }
 
 .ball {
+  text-decoration: none;
+  cursor: pointer;
+  display: grid;
+
   border: solid 2rem #222224;
   border-radius: 50%;
+  background-color: var(--ball-white);
+  width: 300px;
+  height: 300px;
 
-  width: 200px;
-  height: 200px;
+  transition: all 700ms ease-in-out;
+  .ball-title {
+    font-family: var(--pixel1);
+    align-self: center;
+    justify-self: center;
+  }
+
+  &:hover {
+    background-color: var(--bal-grey);
+
+    .ball-title {
+      color: var(--ball-white);
+    }
+  }
 }
