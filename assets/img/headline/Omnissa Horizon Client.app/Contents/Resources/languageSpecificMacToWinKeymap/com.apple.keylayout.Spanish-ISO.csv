@@ -1,7 +1,0 @@
-Character,From Apple Modifier,HID usage,To Windows Modifier,HID usage
-
-\,Alt Control,0x0035,Alt Control,0x0064
-,Alt Control,0x0064,Alt Control,0x0035
-ñ,Alt-Gr,0x0033,Alt Control,0x0021
-=,,0x0067,Shift,0x0027
-,,0x0063,,0x0036

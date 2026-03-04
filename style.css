@@ -4,18 +4,37 @@
   box-sizing: border-box;
 }
 
-h1{
+h1 {
   font-family: var(--pixel2);
 }
-body.open{
-  h1{
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-  }
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
 }
 
-.header-container{
-  background-image: url(./assets/img/headline/charmander.svg), url(./assets/img/headline/avatar.svg);
+h1::after {
+  content: "";
+  position: absolute;
+  background-image: url(./assets/img/headline/bellsprout.svg);
   background-repeat: no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+  left: 20%;
+  transform: rotate(10deg);
+}
+h1::before {
+  content: "";
+  position: absolute;
+  background-image: url(./assets/img/headline/bullbasaur.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+  left: 10%;
+  transform: rotate(-10deg);
 }

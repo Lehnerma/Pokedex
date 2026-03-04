@@ -1,6 +1,0 @@
-Character,From Apple Modifier,HID usage,To Windows Modifier,HID usage
-
-@,,0x0064,Alt-Gr,0x001F
-#,Shift,0x0064,Alt-Gr,0x0020
-
-€,Alt,0x0030,Alt-Gr,0x0008
