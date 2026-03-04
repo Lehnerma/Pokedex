@@ -1,0 +1,393 @@
+/* cabin */
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../assets/fonts/cabin/static/Cabin-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* cabin condensed */
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin Condensed";
+  src: url("../assets/fonts/cabin/static/Cabin_Condensed-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* cabin semi condensed */
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabin SemiCondensed";
+  src: url("../assets/fonts/cabin/static/Cabin_SemiCondensed-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* lato */
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/lato/Lato-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../assets/fonts/pixelify_sans/static/PixelifySans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../assets/fonts/pixelify_sans/static/PixelifySans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../assets/fonts/pixelify_sans/static/PixelifySans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../assets/fonts/pixelify_sans/static/PixelifySans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../assets/fonts/psress_start/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Typescript */
+/*****
+Typografie 
+*****/
+.title {
+  font-family: "jetbrains-mono", sans-serif;
+}
+
+.text {
+  font-family: "oswald", sans-serif;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+.dp-lg {
+  font-size: 2.44rem;
+  line-height: 1.55;
+  letter-spacing: 0.015em;
+  font-weight: 800;
+}
+
+.dp-md {
+  font-size: 2.18rem;
+  line-height: 1.55;
+  letter-spacing: 0.015em;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 1.85rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+h2 {
+  font-size: 1.56rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+  font-weight: 500;
+}
+h5 {
+  font-size: 1.18rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+h6 {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+
+.body-lg {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+.body-sm {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+.caption-lg {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+.caption {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  font-weight: 300;
+}
+
+.caption-sm {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  font-weight: 300;
+}
+
+.overline {
+  font-size: 0.76rem;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+
+.txt-center {
+  text-align: center;
+}
