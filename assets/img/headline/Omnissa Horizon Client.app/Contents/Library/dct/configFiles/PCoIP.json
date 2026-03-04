@@ -1,0 +1,29 @@
+{
+  "featureName": "PCoIP",
+  "logLevelSettings": {
+    "files": [
+      {
+        "path": [
+          "/etc/teradici/pcoip_admin.conf",
+          "~/.pcoip.rc",
+          "/etc/teradici/pcoip_admin_defaults.conf"
+        ],
+        "key": "pcoip.event_filter_mode",
+        "logLevelMapping": {
+          "INFO": "2",
+          "DEBUG": "3",
+          "TRACE": "3",
+          "VERBOSE": "3"
+        }
+      }
+    ]
+  },
+  "logCollectionSettings": {
+    "paths": [
+      {
+        "srcfolder": "PCOIP_LOG_DIR",
+        "rule": "pcoip_client_*"
+      }
+    ]
+  }
+}

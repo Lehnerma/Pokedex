@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+   <key>UTExportedTypeDeclarations</key>
+   <array>
+      <dict>
+         <key>UTTypeIdentifier</key>
+         <string>com.omnissa.horizonvm</string>
+         <key>UTTypeConformsTo</key>
+         <array>
+            <string>public.data</string>
+         </array>
+         <key>UTTypeTagSpecification</key>
+         <dict>
+            <key>public.filename-extension</key>
+            <array>
+               <string>horizonvm</string>
+            </array>
+         </dict>
+         <key>UTTypeDescription</key>
+         <string>Omnissa Horizon Client recent desktop</string>
+         <key>UTTypeIconFile</key>
+         <string>desktop.icns</string>
+      </dict>
+      <dict>
+         <key>UTTypeIdentifier</key>
+         <string>com.omnissa.horizon365vm</string>
+         <key>UTTypeConformsTo</key>
+         <array>
+            <string>public.data</string>
+         </array>
+         <key>UTTypeTagSpecification</key>
+         <dict>
+            <key>public.filename-extension</key>
+            <array>
+               <string>horizon365vm</string>
+            </array>
+         </dict>
+         <key>UTTypeDescription</key>
+         <string>Omnissa Horizon Client recent desktop</string>
+         <key>UTTypeIconFile</key>
+         <string>desktop_windows365.icns</string>
+      </dict>
+      <dict>
+         <key>UTTypeIdentifier</key>
+         <string>com.omnissa.horizonapp</string>
+         <key>UTTypeConformsTo</key>
+         <array>
+            <string>public.data</string>
+         </array>
+         <key>UTTypeTagSpecification</key>
+         <dict>
+            <key>public.filename-extension</key>
+            <array>
+               <string>horizonapp</string>
+            </array>
+         </dict>
+         <key>UTTypeDescription</key>
+         <string>Omnissa Horizon Client recent app</string>
+         <key>UTTypeIconFile</key>
+         <string>application.icns</string>
+      </dict>
+   </array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>horizon-client</string>
+	<key>CFBundleHelpBookName</key>
+	<string>Horizon Client for Mac Help</string>
+	<key>CFBundleIconFile</key>
+	<string>horizon.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.omnissa.horizon.client.mac</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Omnissa Horizon Client</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>HZNMarketVersion</key>
+	<string>2503</string>
+	<key>CFBundleVersion</key>
+	<string>14236092062</string>
+	<key>CFBundleShortVersionString</key>
+	<string>8.15.0</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>CdkApplication</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>onlinehelp</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>Horizon Client URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>horizon-client</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSSupportsAutomaticGraphicsSwitching</key>
+	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone access is required for VoIP call.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is required for VoIP call.</string>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>com.omnissa.horizon.CDSHelper</key>
+		<string>identifier &quot;com.omnissa.horizon.CDSHelper&quot; and anchor apple generic and anchor trusted and cert leaf[subject.CN] = *&quot;Wandering WiFi LLC&quot;*</string>
+	</dict>
+</dict>
+</plist>

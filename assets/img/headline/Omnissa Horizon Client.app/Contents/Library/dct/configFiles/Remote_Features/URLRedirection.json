@@ -1,0 +1,33 @@
+{
+  "featureName": "URL Content Redirection",
+  "logLevelSettings": {
+    "files": [
+      {
+        "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+        "key": "loglevel.user.urlFilter",
+        "logLevelMapping": {
+          "INFO": "1",
+          "DEBUG": "6",
+          "TRACE": "8",
+          "VERBOSE": "10"
+        }
+      }
+    ]
+  },
+  "logCollectionSettings": {
+    "paths": [
+      {
+        "srcfolder": "OMNISSA_LOG_DIR",
+        "rule": "horizon-urlFilter*"
+      },
+      {
+        "srcfolder": "OMNISSA_LOG_DIR",
+        "rule": "horizon-crtbora*"
+      },
+      {
+        "srcfolder": "CLIENT_UI_DIR",
+        "rule": "horizon-client*"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+    "featureName": "WebRTC Redirection",
+    "logLevelSettings": {
+      "files": [
+        {
+          "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+          "key": "html5mmr.log.webrtc.sharedlib.internal",
+          "logLevelMapping": {
+            "INFO": "0",
+            "DEBUG": "1",
+            "TRACE": "1",
+            "VERBOSE": "1"
+          }
+        },
+        {
+          "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+          "key": "html5mmr.log.webrtc.allowFullText",
+          "logLevelMapping": {
+            "INFO": "0",
+            "DEBUG": "1",
+            "TRACE": "1",
+            "VERBOSE": "1"
+          }
+        },
+        {
+          "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+          "key": "html5mmr.log.webrtc.allowThrottle",
+          "logLevelMapping": {
+            "INFO": "1",
+            "DEBUG": "0",
+            "TRACE": "0",
+            "VERBOSE": "0"
+          }
+        },
+        {
+          "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+          "key": "html5mmr.log.noThrottle",
+          "logLevelMapping": {
+            "INFO": "0",
+            "DEBUG": "1",
+            "TRACE": "1",
+            "VERBOSE": "1"
+          }
+        },
+        {
+          "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+          "key": "html5mmr.log.webrtc.traceLevel",
+          "logLevelMapping": {
+            "INFO": "0",
+            "DEBUG": "1",
+            "TRACE": "1",
+            "VERBOSE": "1"
+          }
+        }
+      ]
+    },
+    "logCollectionSettings": {
+      "paths": [
+        {
+          "srcfolder": "OMNISSA_LOG_DIR",
+          "rule": "horizon-html5Client*"
+        }
+      ]
+    }
+}

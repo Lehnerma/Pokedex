@@ -1,0 +1,19 @@
+{
+  "featureName": "Clipboard Redirection",
+  "logLevelSettings": {
+    "files": [
+      {
+        "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+        "key": "MKSVchan.MKSVchanLogger.logLevel"
+      }
+    ]
+  },
+  "logCollectionSettings": {
+    "paths": [
+      {
+        "srcfolder": "OMNISSA_LOG_DIR",
+        "rule": "horizon-MKSVchan*"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "featureName": "Printer Redirection",
+  "logLevelSettings": {
+    "files": [
+      {
+        "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+        "key": "printRedirection.logLevel",
+        "logLevelMapping": {
+          "INFO": "info",
+          "DEBUG": "debug",
+          "TRACE": "trace",
+          "VERBOSE": "verbose"
+        }
+      }
+    ]
+  },
+  "logCollectionSettings": {
+    "paths": [
+      {
+        "srcfolder": "OMNISSA_LOG_DIR",
+        "rule": "horizon-print*"
+      }
+    ]
+  }
+}

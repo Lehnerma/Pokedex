@@ -1,0 +1,61 @@
+{
+  "featureName": "USB Redirection",
+  "logLevelSettings": {
+    "files": [
+      {
+        "path": "~/Library/Preferences/Omnissa Horizon Client/config",
+        "key": "view-usbd.logLevel",
+        "logLevelMapping": {
+          "INFO": "info",
+          "DEBUG": "debug",
+          "TRACE": "trace",
+          "VERBOSE": "trace"
+        }
+      },
+      {
+        "path": "/Library/Preferences/Omnissa Horizon Client/config",
+        "key": "log.fileLevel",
+        "logLevelMapping": {
+          "INFO": "info",
+          "DEBUG": "debug9",
+          "TRACE": "debug9",
+          "VERBOSE": "debug9"
+        }
+      },
+      {
+        "path": "/Library/Preferences/Omnissa Horizon Client/config",
+        "key": "loglevel.user.usb",
+        "logLevelMapping": {
+          "INFO": "1",
+          "DEBUG": "10",
+          "TRACE": "10",
+          "VERBOSE": "10"
+        }
+      }
+    ]
+  },
+  "logCollectionSettings": {
+    "paths": [
+      {
+        "srcfolder": "OMNISSA_LOG_DIR",
+        "rule": "horizon-view-usbd*"
+      },
+      {
+        "srcfolder": "OMNISSA_LOG_DIR",
+        "rule": "horizon-UsbRedirectionClient*"
+      },
+      {
+        "srcfolder": "/Library/Logs/Omnissa",
+        "rule": "horizon-eucusbarb*"
+      },
+      {
+        "srcfolder": "/Library/Logs/Omnissa Horizon Client",
+        "rule": "horizon-*"
+      },
+      {
+        "srcfolder": "/Library/Preferences/Omnissa Horizon Client",
+        "rule": "config"
+      }
+    ]
+  }
+}
