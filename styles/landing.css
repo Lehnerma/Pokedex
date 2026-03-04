@@ -1,0 +1,115 @@
+body {
+  display: grid;
+  grid-template-rows: 50vh 0 50vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--ball-white);
+}
+
+
+/* Header & Footer */
+header {
+  background-color: var(--ball-red);
+  border-bottom: 10px solid #000000;
+  transform: translateY(calc(50vh - 120px));
+}
+
+header, footer {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+footer {
+  background-color: var(--ball-white);
+  border-top: 10px solid #000000;
+  box-sizing: border-box;
+  z-index: 1;
+  transform: translateY(calc(-50vh + 120px));
+}
+
+/* PokeballKnopf */
+.ball-button {
+  position: absolute;
+  left: 50%;
+  bottom: -110px; /* Border darf nicht vergessen werden zu rechnen */
+
+  width: 200px;
+  height: 200px;
+  background: var(--ball-white);
+  border: 6px solid var(--ball-grey);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  display: grid;
+  place-content: center;
+  transform: translateX(-50%) scale(1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out, box-shadow 0.3s ease;
+  box-shadow: inset 0 0 20px var(--ball-grey);
+  will-change: transform, opacity;
+}
+
+/* Hover-Effekt für besseres Feedback */
+.ball-button:hover {
+  transform: translateX(-50%) scale(0.95);
+}
+
+.ball-button:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+
+
+/* Der Text im Button */
+
+
+/* Beim Öffnen: Header bleibt oben, Footer bleibt unten - Grid macht die Arbeit */
+
+body.open main {
+  border: solid red 1px;
+}
+
+
+
+/* Main Content */
+main {
+  opacity: 0;
+  overflow-y: auto;
+  transition: opacity 0.5s ease 0.3s; /* Verzögerung damit es nach dem Öffnen erscheint */
+}
+
+.test-div {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+body.open {
+  main {
+    opacity: 1;
+    min-height: 70vh;
+  }
+  .test-div {
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+body.open header {
+  transform: translateY(0);
+}
+
+body.open footer {
+  transform: translateY(0);
+}

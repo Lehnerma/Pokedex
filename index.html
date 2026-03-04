@@ -4,26 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./styles/utilitys.css" />
     <link rel="stylesheet" href="./styles/colors.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/dex-cards.css" />
 
+
     <script src="./scipts/templets.js"></script>
     <script src="script.js"></script>
 
     <title>Pokedex</title>
   </head>
-  <body class="pokeball-bg">
-    <header>
-      <h1 class="d-none">Pokedex</h1>
+  <body onload="init()" class="">
+    <header id="pokedex-header">
+      <h1 class="dp-lg d-none">Pokedex</h1>
+      <button class="ball-btn" id="ball_btn">
+        <h2 class="ball-title">Pokedex</h2>
+      </button>
     </header>
-    <main>
-      <a class="ball">
-        <h2 class="ball-title dp-lg">Pokedex</h2>
-      <a/>
+
+    <main id="pokedex-main">
+
     </main>
-    <footer></footer>
+
+    <footer id="pokedex-footer">
+      <div class="test-div"><p>footer</p></div>
+    </footer>
   </body>
 </html>

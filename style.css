@@ -3,48 +3,91 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* grid for the body */
+.close {
+  grid-template-rows: 50vh 0 50vh;
+}
+.open {
+  grid-template-rows: 100px 1fr 100px;
+}
 body {
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  place-content: center;
-}
-
-main {
-  align-self: center;
-}
-
-.pokeball-bg {
-  background: linear-gradient(to bottom, #ee1515 48%, /* Rot oben */ #222224 48%, /* Schwarzer Streifen Start */ #222224 52%, /* Schwarzer Streifen Ende */ #f0f0f0 52% /* Weiß unten */);
-  border: 2px solid #222224;
-  /* border-radius: 50%; Macht es kreisrund */
-  width: 100vw;
-  height: 100vh;
-}
-
-.ball {
-  text-decoration: none;
-  cursor: pointer;
-  display: grid;
-
-  border: solid 2rem #222224;
-  border-radius: 50%;
+  min-height: 100vh;
+  grid-template-rows: 50vh 0 50vh;
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--ball-white);
-  width: 300px;
-  height: 300px;
+}
+header {
+  position: relative;
+  background-color: var(--ball-red);
+  border-bottom: solid 10px var(--ball-black);
+}
+footer {
+  background-color: var(--ball-white);
+  border-top: solid 10px var(--ball-black);
+}
 
-  transition: all 700ms ease-in-out;
-  .ball-title {
-    font-family: var(--pixel1);
-    align-self: center;
-    justify-self: center;
-  }
+.ball-btn {
+  position: absolute;
+  bottom: -135px;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  background: var(--ball-white);
+  border: 6px solid var(--ball-grey);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  display: grid;
+  place-content: center;
+  transform: translateX(-50%);
+  will-change: transform, opacity;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 400ms ease-out;
+  box-shadow: inset 0 0 20px var(--ball-grey);
 
   &:hover {
-    background-color: var(--bal-grey);
+    transform: translateX(-50%) scale(0.95);
+  }
 
-    .ball-title {
-      color: var(--ball-white);
-    }
+  &:active {
+    transform: translateX(-50%) scale(0.9);
+  }
+
+  .ball-title {
+    font-family: var(--pixel2);
+  }
+}
+
+body.open {
+  .ball-btn {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+    pointer-events: none;
+  }
+
+
+}
+/* Shake Animation */
+.shake {
+  animation: pokeball-shake 0.5s ease-in-out;
+}
+
+@keyframes pokeball-shake {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-50%) rotate(-12deg);
+  }
+  40% {
+    transform: translateX(-50%) rotate(12deg);
+  }
+  60% {
+    transform: translateX(-50%) rotate(-8deg);
+  }
+  80% {
+    transform: translateX(-50%) rotate(8deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
   }
 }
