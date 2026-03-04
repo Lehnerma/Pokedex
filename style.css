@@ -1,10 +1,31 @@
-@import url("styles/fonts.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* grid for the body */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  place-content: center;
+}
 
-:root {
-    --font-family-cabin: 'Cabin', sans-serif;
-    --font-family-cabin-condensed: 'Cabin Condensed', sans-serif;
-    --font-family-cabin-semi-condensed: 'Cabin SemiCondensed', sans-serif;
-    --font-family-lato: 'Lato', sans-serif;
-    --font-family-pixelify-sans: 'Pixelify Sans', sans-serif;
-    --font-family-press-start: 'Press Start 2P', cursive;
+main {
+  align-self: center;
+}
+
+.pokeball-bg {
+  background: linear-gradient(to bottom, #ee1515 48%, /* Rot oben */ #222224 48%, /* Schwarzer Streifen Start */ #222224 52%, /* Schwarzer Streifen Ende */ #f0f0f0 52% /* Weiß unten */);
+  border: 2px solid #222224;
+  /* border-radius: 50%; Macht es kreisrund */
+  width: 100vw;
+  height: 100vh;
+}
+
+.ball {
+  border: solid 2rem #222224;
+  border-radius: 50%;
+
+  width: 200px;
+  height: 200px;
 }

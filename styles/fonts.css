@@ -1,3 +1,12 @@
+:root {
+  --cabin: "Cabin", sans-serif;
+  --cabin-condensed: "Cabin Condensed", sans-serif;
+  --cabin-semi-condensed: "Cabin SemiCondensed", sans-serif;
+  --lato: "Lato", sans-serif;
+  --pixl1: "Pixelify Sans", sans-serif;
+  --pixel2: "Press Start 2P", sans-serif;
+}
+
 /* cabin */
 @font-face {
   font-family: "Cabin";
@@ -278,6 +287,7 @@
 /*****
 typography 
 *****/
+
 .title {
   font-family: "jetbrains-mono", sans-serif;
 }
