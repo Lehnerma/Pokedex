@@ -8,12 +8,17 @@ function init() {
 
 function initBtn() {
   const ballBtn = document.getElementById("ball_btn");
-  ballBtn.addEventListener("click", () => {
-    // erst die shake bewegeung dann das öffnen.
-    ballBtn.classList.add("shake");
-    setTimeout(() => {
-      ballBtn.classList.remove("shake");
-      document.body.classList.add("open");
-    }, 500);
-  });
+  ballBtn.addEventListener("click", () => openBall(ballBtn));
+}
+
+function addClassBody() {
+  document.body.classList.add("open");
+}
+
+function openBall(btn) {
+  btn.classList.add("shake");
+  setTimeout(() => {
+    btn.classList.remove("shake");
+    addClassBody();
+  }, 500);
 }
