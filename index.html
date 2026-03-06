@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/img/pokecoin.svg" type="image/x-icon" />
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./styles/utilitys.css" />
@@ -16,21 +17,30 @@
 
     <title>Pokedex</title>
   </head>
-  <body onload="init()" class="">
+  <!-- open class entfernen um den ball zu offnen. -->
+  <body onload="init()" class="open">
     <header id="pokedex-header">
       <div class="header-container max-dp">
         <span class="head-faces1"></span>
         <h1 class="dp-lg">Pokedex</h1>
         <span class="head-faces2"></span>
       </div>
-
       <button class="ball-btn" id="ball_btn">
         <h2 class="ball-title">Pokedex</h2>
       </button>
     </header>
 
-    <main id="pokedex-main">
-      <p>test test test test</p>
+    <main id="pokedex-main" class="max-dp">
+      <article class="pokedex">
+        <section class="pokedex-card">
+          <span class="pokedex-sprite"></span>
+          <div class="pokedex-info">
+            <p class="caption">#144</p>
+            <p>Bulbasaur</p>
+          </div>
+          <div class="pokedex-typs"></div>
+        </section>
+      </article>
     </main>
 
     <footer id="pokedex-footer">

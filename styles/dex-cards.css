@@ -1,13 +1,25 @@
-.dex-poke {
-    display: grid;
-    max-width: 350px;
-    grid-template-columns: 1fr 2fr 3fr;
-    align-items: center;
-    background-color: #d9d9d9;
-    border-radius: 16px;
-    padding: 0px 8px;
-    .dex-poke-typs {
-      display: flex;
-      justify-content: space-between;
-    }
+.pokedex-card {
+  display: grid;
+  max-width: 350px;
+  grid-template-columns: 1fr 2fr 3fr;
+  align-items: center;
+  background-color: #d9d9d9;
+  border-radius: 16px;
+  padding: 8px;
+
+  .pokedex-info {
+    font-family: var(--pixel2);
   }
+  .pokedex-typs {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.pokedex-sprite {
+  background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png");
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+}

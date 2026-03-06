@@ -42,7 +42,7 @@ footer {
   background: var(--ball-white);
   border: 6px solid var(--ball-grey);
   border-radius: 50%;
-  cursor: pointer;
+  cursor: url(../assets/img/pointer/pokeball_pointer.svg) 0 0, pointer;
   z-index: 3;
   display: grid;
   place-content: center;
