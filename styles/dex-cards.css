@@ -1,29 +1,40 @@
 .pokedex-card {
   display: grid;
-  justify-items: center;
-  max-width: 400px;
-  width: 100%;
-  grid-template-columns: 1fr 2fr 2fr;
+  width: 320px;
+  min-width: 300px;
+  grid-template-columns: 70px 1fr 2fr;
   align-items: center;
   background-color: #d9d9d9;
   border-radius: 16px;
-  padding: 1rem;
+  padding: 0.5rem;
+  grid-template-areas:
+    "sprite name name"
+    "sprite number types";
+}
 
-  .pokedex-sprite {
-    object-fit: fill;
-    width: 100px;
-    height: 100px;
-  }
+.pokedex-sprite {
+  background-image: url(../assets/img/balbasaur.png);
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  grid-area: sprite;
+}
 
-  .pokedex-info {
-    font-family: var(--pixel2);
-  }
+.pokedex-name {
+  font-family: var(--pixel2);
+  grid-area: name;
+}
 
-  .pokedex-typs {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
+.pokedex-number {
+  font-family: var(--pixel2);
+  grid-area: number;
+}
+
+.pokedex-types {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  grid-area: types;
 }
 
 .type {
