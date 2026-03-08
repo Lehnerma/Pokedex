@@ -13,11 +13,12 @@
     <link rel="stylesheet" href="./styles/landing.css" />
 
     <script src="./scipts/templets.js"></script>
+    <script src="./scipts/auxiliary.js"></script>
     <script src="script.js"></script>
 
     <title>Pokedex</title>
   </head>
-  <!-- open class entfernen um den ball zu offnen. -->
+  <!-- open class entfernen um den ball normal zu offnen. -->
   <body onload="init()" class="open">
     <header id="pokedex-header">
       <div class="header-container max-dp">
@@ -31,21 +32,15 @@
     </header>
 
     <main class="max-dp">
-      <div class="pokedex" id="pokedex">
-        <article class="pokedex-card">
-          <img src="./assets/img/balbasaur.png" alt="" class="pokedex-sprite" role="background for sprite" />
-          <h6 class="pokedex-name">Bulbasaur</h6>
-          <p class="pokedex-number caption-sm">#144</p>
-          <section class="pokedex-types" role="container for types">
-            <span class="type fire" role="type img"></span>
-            <span class="type grass" role="type img"></span>
-          </section>
-        </article>
-      </div>
+      <div class="pokedex" id="pokedex"></div>
     </main>
 
     <footer id="pokedex-footer">
-      <div class="test-div"><p>footer</p></div>
+      <div class="test-div">
+        <p>footer</p>
+        <button id="load_btn">load pokemon</button>
+        <button id="pokedata_btn">data pokemon</button>
+      </div>
     </footer>
   </body>
 </html>

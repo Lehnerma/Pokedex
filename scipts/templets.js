@@ -1,4 +1,4 @@
-function getPokedexCard(name, number, types) {
+function getPokedexCard(name, number) {
   // types must be an array? get a function or template to get the types
   return `
         <article class="pokedex-card">
