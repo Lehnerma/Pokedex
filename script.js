@@ -1,5 +1,8 @@
 //base url erstellen
-// url for offste
+const BASE_URL = "https://pokeapi.co/api/v2/";
+// width the number we can fetch a fix numb of poke
+const OFFSET_Poke = (number) => `https://pokeapi.co/api/v2/pokemon?limit=${number}&offset=0`
+
 // function for fetching
 // loading spinner integretting
 function init() {
@@ -22,3 +25,4 @@ function openBall(btn) {
     addClassBody();
   }, 500);
 }
+

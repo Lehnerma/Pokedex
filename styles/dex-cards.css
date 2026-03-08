@@ -1,22 +1,26 @@
 .pokedex-card {
   display: grid;
-  width: 320px;
+  width: 350px;
   min-width: 300px;
-  grid-template-columns: 70px 1fr 2fr;
+  grid-template-columns: 100px 1fr 2fr;
   align-items: center;
   background-color: #d9d9d9;
   border-radius: 16px;
-  padding: 0.5rem;
+  transition: all 400ms ease-in-out;
   grid-template-areas:
     "sprite name name"
     "sprite number types";
+  &:hover {
+    background-color: #b9b9b9;
+    transform: scale(1.04);
+    box-shadow: inset 2px 2px 0 var(--ball-red);
+  }
 }
 
 .pokedex-sprite {
-  background-image: url(../assets/img/balbasaur.png);
-  width: 50px;
-  height: 50px;
-  background-position: center;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   grid-area: sprite;
 }
 
@@ -27,6 +31,7 @@
 
 .pokedex-number {
   font-family: var(--pixel2);
+
   grid-area: number;
 }
 

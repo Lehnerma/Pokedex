@@ -6,7 +6,7 @@
 }
 
 main {
-  justify-items: center;
-  align-self: center;
   width: 100%;
+  /* padding only for programming - must delet or restyle */
+  padding: 3rem;
 }
