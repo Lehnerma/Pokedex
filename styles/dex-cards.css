@@ -1,25 +1,107 @@
 .pokedex-card {
   display: grid;
-  max-width: 350px;
-  grid-template-columns: 1fr 2fr 3fr;
+  justify-items: center;
+  max-width: 400px;
+  width: 100%;
+  grid-template-columns: 1fr 2fr 2fr;
   align-items: center;
   background-color: #d9d9d9;
   border-radius: 16px;
-  padding: 8px;
+  padding: 1rem;
+
+  .pokedex-sprite {
+    object-fit: fill;
+    width: 100px;
+    height: 100px;
+  }
 
   .pokedex-info {
     font-family: var(--pixel2);
   }
+
   .pokedex-typs {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 100%;
   }
 }
 
-.pokedex-sprite {
-  background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png");
-  width: 50px;
-  height: 50px;
+.type {
   background-position: center;
   background-repeat: no-repeat;
+  max-width: 80px;
+  width: 100%;
+  height: 45px;
+}
+
+.bug {
+  background-image: url(../assets/img/type_classic/bug.svg);
+}
+
+.dark {
+  background-image: url(../assets/img/type_classic/dark.svg);
+}
+
+.dragon {
+  background-image: url(../assets/img/type_classic/dragon.svg);
+}
+
+.electric {
+  background-image: url(../assets/img/type_classic/electric.svg);
+}
+
+.fairy {
+  background-image: url(../assets/img/type_classic/fairy.svg);
+}
+
+.fight {
+  background-image: url(../assets/img/type_classic/fight.svg);
+}
+
+.fire {
+  background-image: url(../assets/img/type_classic/fire.svg);
+}
+
+.ghost {
+  background-image: url(../assets/img/type_classic/ghost.svg);
+}
+
+.grass {
+  background-image: url(../assets/img/type_classic/grass.svg);
+}
+
+.ground {
+  background-image: url(../assets/img/type_classic/ground.svg);
+}
+
+.ice {
+  background-image: url(../assets/img/type_classic/ice.svg);
+}
+
+.flying {
+  background-image: url(../assets/img/type_classic/flying.svg);
+}
+
+.normal {
+  background-image: url(../assets/img/type_classic/normal.svg);
+}
+
+.poison {
+  background-image: url(../assets/img/type_classic/poison.svg);
+}
+
+.psycho {
+  background-image: url(../assets/img/type_classic/psycho.svg);
+}
+
+.rock {
+  background-image: url(../assets/img/type_classic/rock.svg);
+}
+
+.steel {
+  background-image: url(../assets/img/type_classic/steel.svg);
+}
+
+.water {
+  background-image: url(../assets/img/type_classic/water.svg);
 }
