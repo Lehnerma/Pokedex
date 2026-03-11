@@ -1,7 +1,7 @@
 function getPokedexCard(name, number, sprite_front, types) {
   // types must be an array? get a function or template to get the types
   return `
-        <article class="pokedex-card">
+        <article class="pokedex-card" data-id="${number}">
           <img src=${sprite_front} alt="sprite for ${name}" class="pokedex-sprite"/>
           <h6 class="pokedex-name">${name}</h6>
           <p class="pokedex-number caption-sm">#${number}</p>
@@ -10,10 +10,4 @@ function getPokedexCard(name, number, sprite_front, types) {
             <span class="type ${types[1]}" role="type img"></span>
           </section>
         </article>`;
-}
-// testing these function
-function typesTemplate(types) {
-  for (let i = 0; i < types.length; i++) {
-    return `<span class="type ${types[i]}" role="type img"></span>`;
-  }
 }

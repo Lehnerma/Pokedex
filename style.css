@@ -99,12 +99,17 @@
 
 main {
   /* only for programming */
-  padding: 0.5rem;
   width: 100%;
+  justify-self: center;
+  display: grid;
+  align-items: center;
+  grid-template-rows: 80px 1fr;
 }
 
 .pokedex {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }

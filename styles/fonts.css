@@ -288,6 +288,14 @@ typography
   --pixel2: "Press Start 2P", sans-serif;
 }
 
+.title {
+  font-family: var(--pixel2);
+}
+
+.text-main {
+  font-family: var(--lato);
+}
+
 body {
   font-size: 1rem;
   line-height: 1.6;
