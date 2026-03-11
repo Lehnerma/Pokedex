@@ -39,14 +39,14 @@ async function getPokemon(number) {
     const response = await fetch(OFFSET_Poke(number));
     const result = await response.json();
     POKEMON.push(...result.results); // ... spread operator - the values will directly push into the array
-    updatePokemons(POKEMON);
+    savePokemonInfos(POKEMON);
   } catch (er) {
     console.error(er);
   }
 }
 
 // save the infos whitch i need for the dex and the infocard
-async function updatePokemons(pokeArray) {
+async function savePokemonInfos(pokeArray) {
   for (const pokemon of pokeArray) {
     const response = await fetch(pokemon.url);
     const result = await response.json();
@@ -56,9 +56,22 @@ async function updatePokemons(pokeArray) {
       (pokemon.sprite_front = result.sprites.front_default), //
       (pokemon.sprite_back = result.sprites.back_default), //
       (pokemon.types = getTypes(result.types)), //
-      (pokemon.cries = result.cries.latest);
+      (pokemon.cries = result.cries.latest),
+      (pokemon.stats = saveStats(result.stats));
   }
 }
+// save stats
+function saveStats(statsArray) {
+  let baseStats = [];
+  statsArray.forEach((element) => {
+    baseStats.push({
+      name: element.stat.name,
+      value: element.base_stat,
+    });
+  });
+  return baseStats;
+}
+
 // get only the types name - the return is a array for looping
 function getTypes(typeArray) {
   let poketype = [];
