@@ -21,15 +21,13 @@ function addClassBody() {
 
 function openBall(btn) {
   btn.classList.add("shake");
-  getPokemon();
   setTimeout(() => {
     btn.classList.remove("shake");
     addClassBody();
-    showPokemon();
   }, 600); // is also the loading screen for the first fetch
 }
 
-// the name and url fetch for the pokemon
+// Get Pokemon Infos for the Dex and the Cards
 async function getPokemon() {
   try {
     const response = await fetch(OFFSET_Poke(OFFSET_FOR_URL, LOAD_LIMIT));
@@ -42,7 +40,6 @@ async function getPokemon() {
   }
 }
 
-// save the infos whitch i need for the dex and the infocard
 async function getPokemonInfos(pokeArray) {
   for (const pokemon of pokeArray) {
     const response = await fetch(pokemon.url);
@@ -58,7 +55,6 @@ async function getPokemonInfos(pokeArray) {
   }
 }
 
-// save stats
 function saveStats(statsArray) {
   let baseStats = [];
   statsArray.forEach((element) => {
@@ -70,7 +66,6 @@ function saveStats(statsArray) {
   return baseStats;
 }
 
-// get only the types name - the return is a array for looping
 function getTypes(typeArray) {
   let poketype = [];
   typeArray.forEach((types) => {
@@ -88,7 +83,11 @@ function showPokemon() {
   }
 }
 
-// this section is for testing functions in the script
+function capitalizeFirstLetter(val) {
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+
+// Testing Section
 function test() {
   const loadBtn = document.getElementById("load_btn");
   loadBtn.addEventListener("click", () => getPokemon());
@@ -97,13 +96,10 @@ function test() {
 
 function handelClick(event) {
   const target = event.target.closest("[data-id]");
+  console.log(target);
 }
 
 function loadNewPokemons() {
   OFFSET_FOR_URL = POKEMONS.length;
   getPokemon();
-}
-
-function capitalizeFirstLetter(val) {
-  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
