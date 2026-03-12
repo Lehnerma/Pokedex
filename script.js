@@ -14,23 +14,6 @@ function initBtn() {
   ballBtn.addEventListener("click", () => openBall(ballBtn));
 }
 
-// this section is for testing functions in the script
-function test() {
-  const loadBtn = document.getElementById("load_btn");
-  loadBtn.addEventListener("click", () => getPokemon());
-  document.getElementById("pokedex").addEventListener("click", handelClick);
-}
-
-function handelClick(event) {
-  const target = event.target.closest("[data-id]");
-}
-
-function loadNewPokemons() {
-  OFFSET_FOR_URL = POKEMONS.length;
-  getPokemon();
-}
-
-//---- end of the testing seciton
 // landing page
 function addClassBody() {
   document.body.classList.add("open");
@@ -45,8 +28,6 @@ function openBall(btn) {
     showPokemon();
   }, 600); // is also the loading screen for the first fetch
 }
-
-//---- Pokemon + Infos -----
 
 // the name and url fetch for the pokemon
 async function getPokemon() {
@@ -103,6 +84,26 @@ function showPokemon() {
   console.log(!POKEMONS.length);
   const index = !POKEMONS.length ? 0 : POKEMONS.length - 20;
   for (let i = index; i < POKEMONS.length; i++) {
-    pokedex.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
+    pokedex.innerHTML += getPokedexCard(capitalizeFirstLetter(POKEMONS[i].name), POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
   }
+}
+
+// this section is for testing functions in the script
+function test() {
+  const loadBtn = document.getElementById("load_btn");
+  loadBtn.addEventListener("click", () => getPokemon());
+  document.getElementById("pokedex").addEventListener("click", handelClick);
+}
+
+function handelClick(event) {
+  const target = event.target.closest("[data-id]");
+}
+
+function loadNewPokemons() {
+  OFFSET_FOR_URL = POKEMONS.length;
+  getPokemon();
+}
+
+function capitalizeFirstLetter(val) {
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
