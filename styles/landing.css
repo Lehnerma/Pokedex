@@ -60,7 +60,7 @@ footer {
 
 /* Shake Animation */
 .shake {
-  animation: pokeball-shake 800ms ease-in-out;
+  animation: pokeball-shake 1000ms ease-in-out;
 }
 
 @keyframes pokeball-shake {
@@ -133,7 +133,7 @@ body.open {
   footer {
     display: flex;
     justify-content: center;
-    background-color: var(--ball-red);
+    background-color: var(--ball-white);
     animation: fade-in 800ms ease-out 200ms forwards;
   }
 

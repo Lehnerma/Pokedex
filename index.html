@@ -19,7 +19,7 @@
     <title>Pokedex</title>
   </head>
   <!-- open class entfernen um den ball normal zu offnen. -->
-  <body onload="init()" class="">
+  <body onload="init()" class="open">
     <header id="pokedex-header">
       <div class="header-container max-dp">
         <span class="head-faces1"></span>
@@ -32,7 +32,12 @@
     </header>
 
     <main class="max-dp">
-      <section><h3 class="title">serchbar + filter + buttons for loading</h3></section>
+      <article class="testing">
+        <section class="pokedex-serch">
+          <input type="text" id="search_input" placeholder="Pokemon" />
+          <button>🔍</button>
+        </section>
+      </article>
       <div class="pokedex" id="pokedex"></div>
     </main>
 
@@ -40,8 +45,6 @@
       <div class="test-div">
         <p>footer</p>
         <button id="load_btn">load pokemon</button>
-        <button onclick="showPokemon()">show</button>
-        <button onclick="loadNewPokemons()">load more</button>
       </div>
     </footer>
   </body>

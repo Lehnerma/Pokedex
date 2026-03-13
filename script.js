@@ -1,6 +1,7 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
 let OFFSET_FOR_URL = 0;
 let LOAD_LIMIT = 20;
+let CURRENT_LENGTH_POKEMONS = 0;
 const OFFSET_Poke = (beginn, limit) => `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${beginn}`;
 let POKEMONS = [];
 
@@ -24,61 +25,57 @@ function openBall(btn) {
   setTimeout(() => {
     btn.classList.remove("shake");
     addClassBody();
-  }, 600); // is also the loading screen for the first fetch
+  }, 1000); // is also the loading screen for the first fetch
 }
 
 // Get Pokemon Infos for the Dex and the Cards
-async function getPokemon() {
+async function getPokemons() {
+  CURRENT_LENGTH_POKEMONS = POKEMONS.length;
   try {
     const response = await fetch(OFFSET_Poke(OFFSET_FOR_URL, LOAD_LIMIT));
     const result = await response.json();
-    POKEMONS.push(...result.results); // ... spread operator - the values will directly push into the array
-    await getPokemonInfos(POKEMONS);
-    showPokemon();
+    const newPokemons = result.results;
+    await getPokemonsInfos(newPokemons);
+    POKEMONS.push(...newPokemons);
   } catch (er) {
     console.error(er);
   }
+  showPokemons();
+  OFFSET_FOR_URL = POKEMONS.length;
 }
 
-async function getPokemonInfos(pokeArray) {
-  for (const pokemon of pokeArray) {
-    const response = await fetch(pokemon.url);
-    const result = await response.json();
-    (pokemon.weight = result.weight), //
-      (pokemon.height = result.height), //
-      (pokemon.id = result.id), //
-      (pokemon.sprite_front = result.sprites.front_default), //
-      (pokemon.sprite_back = result.sprites.back_default), //
-      (pokemon.types = getTypes(result.types)), //
-      (pokemon.cries = result.cries.latest),
-      (pokemon.stats = saveStats(result.stats));
-  }
+async function getPokemonsInfos(pokeArray) {
+  await Promise.all(
+    pokeArray.map(async (pokemon) => {
+      try {
+        const response = await fetch(pokemon.url);
+        if (!response.ok) throw new Error("Netzwerk Antwort Fehler!");
+        const result = await response.json();
+        saveDatatoPokemon(pokemon, result);
+      } catch (er) {
+        console.error(`fehler für ${pokemon.name}: `, er);
+      }
+    })
+  );
 }
 
-function saveStats(statsArray) {
-  let baseStats = [];
-  statsArray.forEach((element) => {
-    baseStats.push({
-      name: element.stat.name,
-      value: element.base_stat,
-    });
-  });
-  return baseStats;
+function saveDatatoPokemon(pokemon, data) {
+  pokemon.weight = data.weight;
+  pokemon.height = data.height;
+  pokemon.id = data.id;
+  pokemon.sprite_front = data.sprites.front_default;
+  pokemon.sprite_back = data.sprites.back_default;
+  pokemon.types = data.types.map((types) => types.type.name);
+  pokemon.cries = data.cries.latest;
+  pokemon.stats = data.stats.map((stats) => ({
+    name: stats.stat.name,
+    value: stats.base_stat,
+  }));
 }
 
-function getTypes(typeArray) {
-  let poketype = [];
-  typeArray.forEach((types) => {
-    poketype.push(types.type.name);
-  });
-  return poketype;
-}
-
-function showPokemon() {
+function showPokemons() {
   let pokedex = document.getElementById("pokedex");
-  console.log(!POKEMONS.length);
-  const index = !POKEMONS.length ? 0 : POKEMONS.length - 20;
-  for (let i = index; i < POKEMONS.length; i++) {
+  for (let i = CURRENT_LENGTH_POKEMONS; i < POKEMONS.length; i++) {
     pokedex.innerHTML += getPokedexCard(capitalizeFirstLetter(POKEMONS[i].name), POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
   }
 }
@@ -90,8 +87,10 @@ function capitalizeFirstLetter(val) {
 // Testing Section
 function test() {
   const loadBtn = document.getElementById("load_btn");
-  loadBtn.addEventListener("click", () => getPokemon());
+  loadBtn.addEventListener("click", () => getPokemons());
   document.getElementById("pokedex").addEventListener("click", handelClick);
+  const searchInput = getBoxId("search_input");
+  searchInput.addEventListener("input", searchPokemon);
 }
 
 function handelClick(event) {
@@ -99,7 +98,15 @@ function handelClick(event) {
   console.log(target);
 }
 
-function loadNewPokemons() {
-  OFFSET_FOR_URL = POKEMONS.length;
-  getPokemon();
+function searchPokemon() {
+  const searchInput = getBoxId("search_input").value.trim().toLowerCase();
+  const pokedex = getBoxId("pokedex");
+  pokedex.innerHTML = "";
+  for (let i = 0; i < POKEMONS.length; i++) {
+    const pokemon = POKEMONS[i];
+    const pokemonName = pokemon.name;
+    if (pokemonName.includes(searchInput)) {
+      pokedex.innerHTML += getPokedexCard(pokemonName, pokemon.id, pokemon.sprite_front, pokemon.types);
+    }
+  }
 }

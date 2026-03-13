@@ -4,6 +4,7 @@
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  padding: var(--spacing-sm);
 }
 
 .pokedex-card {
@@ -44,7 +45,7 @@
 
 .pokedex-types {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   width: 100%;
   grid-area: types;
 }
