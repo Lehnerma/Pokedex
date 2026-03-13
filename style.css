@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: url(../assets/img/pointer/pokeball_pointer.svg) 0 0, pointer;
+  /* cursor: url(../assets/img/pointer/pokeball_pointer.svg) 0 0, pointer; */
 }
 header {
   position: relative;

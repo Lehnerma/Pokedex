@@ -1,10 +1,3 @@
-const BASE_URL = "https://pokeapi.co/api/v2/";
-let OFFSET_FOR_URL = 0;
-let LOAD_LIMIT = 20;
-let CURRENT_LENGTH_POKEMONS = 0;
-const OFFSET_Poke = (beginn, limit) => `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${beginn}`;
-let POKEMONS = [];
-
 function init() {
   initBtn();
   test();
@@ -80,10 +73,18 @@ function showPokemons() {
   }
 }
 
-function capitalizeFirstLetter(val) {
-  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+function searchPokemon() {
+  const searchInput = getBoxId("search_input").value.trim().toLowerCase();
+  const pokedex = getBoxId("pokedex");
+  pokedex.innerHTML = "";
+  for (let i = 0; i < POKEMONS.length; i++) {
+    const pokemon = POKEMONS[i];
+    const pokemonName = pokemon.name;
+    if (pokemonName.includes(searchInput)) {
+      pokedex.innerHTML += getPokedexCard(pokemonName, pokemon.id, pokemon.sprite_front, pokemon.types);
+    }
+  }
 }
-
 // Testing Section
 function test() {
   const loadBtn = document.getElementById("load_btn");
@@ -96,17 +97,4 @@ function test() {
 function handelClick(event) {
   const target = event.target.closest("[data-id]");
   console.log(target);
-}
-
-function searchPokemon() {
-  const searchInput = getBoxId("search_input").value.trim().toLowerCase();
-  const pokedex = getBoxId("pokedex");
-  pokedex.innerHTML = "";
-  for (let i = 0; i < POKEMONS.length; i++) {
-    const pokemon = POKEMONS[i];
-    const pokemonName = pokemon.name;
-    if (pokemonName.includes(searchInput)) {
-      pokedex.innerHTML += getPokedexCard(pokemonName, pokemon.id, pokemon.sprite_front, pokemon.types);
-    }
-  }
 }
