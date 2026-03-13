@@ -112,3 +112,25 @@ main {
   align-items: center;
   grid-template-rows: 80px 1fr 80px;
 }
+
+.dialog {
+  /* position of the dialog in the middle */
+  margin: auto;
+}
+.dialog::backdrop {
+  background: url(./assets/img/johto.png);
+  object-fit: cover;
+  object-position: center;
+}
+
+.loading-screen {
+  margin: auto;
+  border: none;
+  img {
+    width: 200px;
+    height: 100%;
+  }
+}
+.loading-screen::backdrop {
+  opacity: 1;
+}

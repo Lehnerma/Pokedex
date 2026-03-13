@@ -15,6 +15,7 @@ function addClassBody() {
 
 function openBall(btn) {
   btn.classList.add("shake");
+  getPokemons();
   setTimeout(() => {
     btn.classList.remove("shake");
     addClassBody();
@@ -24,6 +25,7 @@ function openBall(btn) {
 // Get Pokemon Infos for the Dex and the Cards
 async function getPokemons() {
   CURRENT_LENGTH_POKEMONS = POKEMONS.length;
+  openLoadingScreen();
   try {
     const response = await fetch(OFFSET_Poke(OFFSET_FOR_URL, LOAD_LIMIT));
     const result = await response.json();
@@ -34,6 +36,7 @@ async function getPokemons() {
     console.error(er);
   }
   showPokemons();
+  closeLoadingScreen();
   OFFSET_FOR_URL = POKEMONS.length;
 }
 
@@ -97,4 +100,16 @@ function test() {
 function handelClick(event) {
   const target = event.target.closest("[data-id]");
   console.log(target);
+}
+
+function openLoadingScreen() {
+  if (!POKEMONS.length > 0) return;
+  const dialog = getBoxId("loading_screen");
+  dialog.showModal();
+}
+
+function closeLoadingScreen() {
+  if (!POKEMONS.length > 0) return;
+  const dialog = getBoxId("loading_screen");
+  dialog.close();
 }
