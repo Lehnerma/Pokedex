@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/pokedex.css" />
     <link rel="stylesheet" href="./styles/landing.css" />
+    <link rel="stylesheet" href="./styles/card.css" />
 
     <script src="./scipts/data.js"></script>
     <script src="./scipts/templets.js"></script>
@@ -40,11 +41,79 @@
         </section>
       </article>
       <div class="pokedex" id="pokedex"></div>
-      <div>
+
         <dialog id="pokecard_dialog" class="pokecard-dialog">
-          <p>This dialog was opened using an invoker command.</p>
-          <button commandfor="my-dialog" command="close">Close</button>
+          <!-- template creating -->
+          <div class="pokemon-card">
+
+              <h3 class="pokemon-card--name title">Name</h3>
+
+              <section class="pokemon-card--img-container">
+                <img src="/assets/img/654.png" alt="sprite-front pokemon-name" class="sprite-front pokemon-name" />
+                <!-- <div class="type fire" role="img" aria-label="type img"></div> -->
+              </section>
+
+              <section class="pokemon-card--basic">
+                <p class="pokemon-card--id"># 4</>
+                <p>HT. 0,70</p>
+                <p>WT. 0,70</p>
+              </section>
+
+              <article class="pokemon-card--main">
+                <nav class="pokemon-card--nav">
+                  <ul>
+                    <li>Stats</li>
+                    <li>Evoulution</li>
+                    <li>Pokedex</li>
+                  </ul>
+                </nav>
+                <section class="pokemon-card--stats-container">
+                  <div class="stat-container">
+                    <label for="stat_hp" class="stat-title">HP</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_hp" value="50" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_ang" class="stat-title">ANG</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_ang" value="150" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_spAng" class="stat-title">SP ANG</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_spAng" value="250" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_def" class="stat-title">DEF</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_def" value="180" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_spDef" class="stat-title">SP DEF</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_spDef" value="50" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_speed" class="stat-title">SPEED</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_speed" value="50" max="255" class="stat-progress"></progress>
+                  </div>
+                </section>
+
+                <section class="pokemon-card--pokedex-container d-none">
+                  <img src="/assets/img/pokedex.svg" alt="pokedex">
+                  <p class="pomeon-card--pokedex-info">Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally</p>
+                </section>
+
+                <section class="pokemon-card--evolution d-none">
+                  <img src="" alt="">
+                </section>
+              </article>
+
+            <!-- template ending -->
+            </div>
         </dialog>
+
         <dialog id="loading_screen" class="loading-screen">
           <img src="./assets/img/loading_pikatchu.gif" alt="Pikatchu running on a Pokeball" />
         </dialog>
@@ -53,10 +122,11 @@
 
     <footer id="pokedex-footer">
       <div class="test-div">
-        <p>footer</p>
-        <button id="load_btn">load pokemon</button>
-        <button command="show-modal" commandfor="pokecard_dialog">Open dialog</button>
+        <button onclick="getPokemons()">load pokemon</button>
+        <button onclick="openPokeCard()">Open dialog</button>
         <button onclick="openLoadingScreen()">loading</button>
+        <button onclick="saveToLocal()">save Local</button>
+        <button onclick="loadFromLocal()">load Local</button>
       </div>
     </footer>
   </body>

@@ -1,8 +1,9 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
+const OFFSET_Poke = (beginn, limit) => `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${beginn}`;
+const EVOLUTION_URL = (id) => `https://pokeapi.co/api/v2/evolution-chain/${id}`;
 let OFFSET_FOR_URL = 0;
 let LOAD_LIMIT = 20;
 let CURRENT_LENGTH_POKEMONS = 0;
-const OFFSET_Poke = (beginn, limit) => `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${beginn}`;
 let POKEMONS = [];
 
 const pokemonTypes = [

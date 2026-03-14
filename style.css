@@ -4,6 +4,9 @@
   box-sizing: border-box;
   /* cursor: url(../assets/img/pointer/pokeball_pointer.svg) 0 0, pointer; */
 }
+body {
+  overflow: auto;
+}
 header {
   position: relative;
   background-color: var(--ball-red);
@@ -113,16 +116,6 @@ main {
   grid-template-rows: 80px 1fr 80px;
 }
 
-.dialog {
-  /* position of the dialog in the middle */
-  margin: auto;
-}
-.dialog::backdrop {
-  background: url(./assets/img/johto.png);
-  object-fit: cover;
-  object-position: center;
-}
-
 .loading-screen {
   margin: auto;
   border: none;
@@ -133,4 +126,18 @@ main {
 }
 .loading-screen::backdrop {
   opacity: 1;
+}
+
+/****************** 
+Pokemon Card 
+****************** */
+.pokecard-dialog {
+  /* position of the dialog in the middle */
+  margin: auto;
+}
+.pokecard-dialog::backdrop {
+  background: url(./assets/img/johto.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

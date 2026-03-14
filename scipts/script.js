@@ -8,7 +8,9 @@ function initBtn() {
   ballBtn.addEventListener("click", () => openBall(ballBtn));
 }
 
-// landing page
+//===========================//
+//  Landing page
+// ==========================//
 function addClassBody() {
   document.body.classList.add("open");
 }
@@ -21,8 +23,9 @@ function openBall(btn) {
     addClassBody();
   }, 1000); // is also the loading screen for the first fetch
 }
-
-// Get Pokemon Infos for the Dex and the Cards
+//===========================
+//  get pokemon datas
+// ==========================
 async function getPokemons() {
   CURRENT_LENGTH_POKEMONS = POKEMONS.length;
   openLoadingScreen();
@@ -70,9 +73,9 @@ function saveDatatoPokemon(pokemon, data) {
 }
 
 function showPokemons() {
-  let pokedex = document.getElementById("pokedex");
+  let pokedex = getBoxId("pokedex");
   for (let i = CURRENT_LENGTH_POKEMONS; i < POKEMONS.length; i++) {
-    pokedex.innerHTML += getPokedexCard(capitalizeFirstLetter(POKEMONS[i].name), POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
+    pokedex.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
   }
 }
 
@@ -88,11 +91,13 @@ function searchPokemon() {
     }
   }
 }
-// Testing Section
+//===========================
+//  testing & creating
+// ==========================
 function test() {
-  const loadBtn = document.getElementById("load_btn");
-  loadBtn.addEventListener("click", () => getPokemons());
   document.getElementById("pokedex").addEventListener("click", handelClick);
+  const CARD_DIALOG = getBoxId("pokecard_dialog");
+  CARD_DIALOG.addEventListener("click", pokecardClose);
   const searchInput = getBoxId("search_input");
   searchInput.addEventListener("input", searchPokemon);
 }
@@ -101,6 +106,10 @@ function handelClick(event) {
   const target = event.target.closest("[data-id]");
   console.log(target);
 }
+
+//===========================
+//  Dialog
+// ==========================
 
 function openLoadingScreen() {
   if (!POKEMONS.length > 0) return;
@@ -112,4 +121,37 @@ function closeLoadingScreen() {
   if (!POKEMONS.length > 0) return;
   const dialog = getBoxId("loading_screen");
   dialog.close();
+}
+
+function openPokeCard() {
+  document.body.style.overflow = "hidden";
+  const dialog = getBoxId("pokecard_dialog");
+  dialog.showModal();
+}
+function closePokeCard() {
+  document.body.style.overflow = "";
+  const dialog = getBoxId("pokecard_dialog");
+  dialog.close();
+}
+
+function pokecardClose(event) {
+  let dialogRef = getBoxId("pokecard_dialog");
+  if (event.target == dialogRef) {
+    closePokeCard();
+  }
+}
+//===========================
+//  Local Storage for testing.
+// ==========================
+function saveToLocal() {
+  const data = JSON.stringify(POKEMONS);
+  console.log(data);
+  localStorage.setItem("pokemons", data);
+}
+
+function loadFromLocal() {
+  const obj = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
+  console.log(obj);
+  POKEMONS = obj;
+  showPokemons();
 }
