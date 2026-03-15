@@ -68,5 +68,15 @@
         }
       }
     }
+    .stats-container {
+      background-color: var(--ball-white);
+      padding: var(--spacing-sm);
+      height: 100%;
+      .stat-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
   }
 }
