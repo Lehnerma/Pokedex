@@ -76,6 +76,9 @@
   --ball-white: #f0f0f0;
   --ball-grey: #222224;
   --ball-black: black;
-/* Pikachu yellow */
+  /* Pikachu yellow */
   --yellow: #f4dc26;
+
+  --gold-bg: linear-gradient(45deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa8939 100%);
+  --gold-light: #E6B800;
 }

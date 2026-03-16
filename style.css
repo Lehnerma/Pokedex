@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   /* cursor: url(../assets/img/pointer/pokeball_pointer.svg) 0 0, pointer; */
+  font-family: var(--lato), sans-serif;
 }
 body {
   overflow: auto;
