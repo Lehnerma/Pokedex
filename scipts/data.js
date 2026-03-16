@@ -1,10 +1,12 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
 const OFFSET_Poke = (beginn, limit) => `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${beginn}`;
 const EVOLUTION_URL = (id) => `https://pokeapi.co/api/v2/evolution-chain/${id}`;
+
 let OFFSET_FOR_URL = 0;
 let LOAD_LIMIT = 20;
 let CURRENT_LENGTH_POKEMONS = 0;
 let POKEMONS = [];
+let CURRENT_TAB = loadCurrentTab() ?? "stats"
 
 const pokemonTypes = [
   { name: "Normal", value: "normal", color: "#A8A77A", gradient: "linear-gradient(135deg, #A8A77A 0%, #7A7955 100%)", imgSrc: "assets/img/type_modern/Normal.svg" },

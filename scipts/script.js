@@ -1,6 +1,7 @@
 function init() {
   initBtn();
   test();
+  loadContent(CURRENT_TAB)
 }
 
 function initBtn() {
@@ -100,6 +101,7 @@ function test() {
   CARD_DIALOG.addEventListener("click", pokecardClose);
   const searchInput = getBoxId("search_input");
   searchInput.addEventListener("input", searchPokemon);
+
 }
 
 function handelClick(event) {
@@ -140,18 +142,37 @@ function pokecardClose(event) {
     closePokeCard();
   }
 }
-//===========================
-//  Local Storage for testing.
-// ==========================
-function saveToLocal() {
-  const data = JSON.stringify(POKEMONS);
-  console.log(data);
-  localStorage.setItem("pokemons", data);
+
+//=============
+//Cards
+//=============
+
+function loadContent(tab) {
+  localStorage.setItem("current-tab", tab);
+  hideActivNav();
+  hideContent();
+  const NAV = document.getElementById(tab);
+  NAV.classList.add("activ");
+  changeContent();
 }
 
-function loadFromLocal() {
-  const obj = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
-  console.log(obj);
-  POKEMONS = obj;
-  showPokemons();
+function hideContent() {
+  const CONTENTS = document.querySelectorAll(".content");
+  CONTENTS.forEach((element) => {
+    element.classList.add("d-none");
+  });
+}
+
+function hideActivNav() {
+  const NAV = document.querySelectorAll(".tab");
+  NAV.forEach((element) => {
+    element.classList.remove("activ");
+  });
+}
+
+function changeContent() {
+  hideContent();
+  const CURRENT_TAB = localStorage.getItem("current-tab");
+  const CURRENT_CONTENT = document.getElementById(`${CURRENT_TAB}_container`);
+  CURRENT_CONTENT.classList.remove("d-none");
 }

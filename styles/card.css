@@ -118,7 +118,6 @@
         }
         .activ {
           background-color: var(--gold-light);
-          /* border: solid 4px green */
           box-shadow: inset 0 0 2px 1px var(--gold-light);
         }
       }

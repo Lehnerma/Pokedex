@@ -17,3 +17,24 @@ function checkBgDex(type) {
       return pokemonTypes[i].gradient;
     }
 }
+
+//===========================
+//  Local Storage for testing.
+// ==========================
+function saveToLocal() {
+  const data = JSON.stringify(POKEMONS);
+  console.log(data);
+  localStorage.setItem("pokemons", data);
+}
+
+function loadFromLocal() {
+  const obj = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
+  console.log(obj);
+  POKEMONS = obj;
+  showPokemons();
+}
+
+function loadCurrentTab() {
+  const CURRENT_TAB = localStorage.getItem("current-tab");
+  return CURRENT_TAB;
+}

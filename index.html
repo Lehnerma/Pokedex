@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="./styles/card.css" />
     <link rel="stylesheet" href="./styles/utilitys.css" />
 
-    <script src="./scipts/data.js"></script>
     <script src="./scipts/templets.js"></script>
     <script src="./scipts/auxiliary.js"></script>
+    <script src="./scipts/data.js"></script>
     <script src="./scipts/script.js"></script>
 
     <title>Pokedex</title>
@@ -61,12 +61,12 @@
           <article class="pokemon-card--main glass">
             <nav class="pokemon-card--nav">
               <ul>
-                <li class="li-left">Stats</li>
-                <li class="li-middl">Evoulution</li>
-                <li class="li-right">Pokedex</li>
+                <li id="stats" class="li-left tab" onclick="loadContent(`stats`)">Stats</li>
+                <li id="evolution" class="tab" onclick="loadContent(`evolution`)">Evoulution</li>
+                <li id="dex" class="li-right tab activ" onclick="loadContent(`dex`)">Pokedex</li>
               </ul>
             </nav>
-            <section class="stats-container d-none" id="stats_container">
+            <section class="content stats-container" id="stats_container">
               <div class="stat-container">
                 <label for="stat_hp" class="stat-title">HP</label>
                 <p class="stat-value" id="stat_hp_value">0</p>
@@ -99,11 +99,11 @@
               </div>
             </section>
 
-            <section class="evolution-container d-none">
+            <section class="content evolution-container d-none" id="evolution_container">
               
             </section>
 
-            <section class="dex-container">
+            <section class="content dex-container d-none" id="dex_container">
               <img src="/assets/img/pokedex.svg" alt="pokedex" class="dex" />
               <p class="pokedex-info" id="pokedex-info">Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally</p>
             </section>
