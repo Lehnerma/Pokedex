@@ -10,7 +10,7 @@
   --max-dp-width: 1440px;
 }
 .d-none {
-  display: none;
+  display: none !important;  /* iportant becaus the card styling is nesting css*/
 }
 
 .max-dp {

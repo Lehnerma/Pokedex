@@ -1,6 +1,6 @@
 .pokecard-dialog {
   background: var(--ball-white);
-  min-width: 320px;
+  min-width: 300px;
   width: 100%;
   max-width: 400px;
   height: 600px;
@@ -12,7 +12,7 @@
   border: solid 5px var(--gold-light);
   background: linear-gradient(60deg, #a9a9a9, #e8e8e8, #8e8e8e, #f0f0f0, #a9a9a9);
   background-size: 300% 300%;
-  animation: shimmer-animation 10s alternate infinite ease-in-out;
+  animation: shimmer-animation 10s alternate ease-in-out; /*infinity for looping*/
 }
 
 @keyframes shimmer-animation {
@@ -82,6 +82,7 @@
     height: 100%;
     display: grid;
     grid-template-rows: 50px 1fr;
+
     .pokemon-card--nav {
       ul {
         justify-self: center;
@@ -99,6 +100,11 @@
           width: 100%;
           height: 100%;
           border-bottom: 1px solid black;
+
+          &:hover{
+            background-color: var(--gold-old);
+            cursor: url(/assets/img/pointer/pokeball_pointer.svg) 15 15 , pointer;
+          }
         }
 
         .li-left {
@@ -111,7 +117,7 @@
           border-left: 1px black solid;
         }
         .activ {
-          background-color: #a1a1a1;
+          background-color: var(--gold-light);
           /* border: solid 4px green */
           box-shadow: inset 0 0 2px 1px var(--gold-light);
         }
@@ -125,6 +131,33 @@
         display: grid;
         grid-template-columns: 1fr auto auto;
         gap: 8px;
+      }
+    }
+
+    .evolution-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(50px, 100%), 1fr));
+
+      .evolution-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .arrow {
+          height: 45px;
+        }
+      }
+    }
+
+    .dex-container {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      align-items: center;
+      .dex {
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
       }
     }
   }

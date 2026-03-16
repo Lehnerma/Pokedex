@@ -10,9 +10,8 @@ function getPokedexCard(name, number, sprite_front, types) {
         </article>`;
 }
 
-function getStatsContainer() {
+function getStatsTemplate() {
   return `
-                  <section class="stats-container">
                   <div class="stat-container">
                     <label for="stat_hp" class="stat-title">HP</label>
                     <p class="stat-value">50</p>
@@ -42,8 +41,24 @@ function getStatsContainer() {
                     <label for="stat_speed" class="stat-title">SPEED</label>
                     <p class="stat-value">50</p>
                     <progress id="stat_speed" value="50" max="255" class="stat-progress"></progress>
-                  </div>
-                </section>`;
+                  </div>`;
 }
 
+function getEvolutionTemplate(){
+  return `
+                <div class="evolution-card">
+                <img src="/assets/img/464.png" alt="pokemon-name" class="evolution-img" />
+                <img src="/assets/img/arrow.svg" alt="arrow right" class="arrow" />
+                <p>LV: 38</p>
+              </div>
+              <div class="evolution-card">
+                <img src="/assets/img/464.png" alt="pokemon-name" class="evolution-img" />
+                <img src="/assets/img/arrow.svg" alt="arrow right" class="arrow" />
+                <p>LV: 38</p>
+              </div>
+              <div class="evolution-card">
+                <img src="/assets/img/464.png" alt="pokemon-name" class="evolution-img" />
+              </div>
+  `
+}
 
