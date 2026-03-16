@@ -10,17 +10,40 @@ function getPokedexCard(name, number, sprite_front, types) {
         </article>`;
 }
 
-function createTypes(types) {
-  return types.map((type) => `<span class="type ${type}" role="img" aria-label="${type}"></span>`).join("");
+function getStatsContainer() {
+  return `
+                  <section class="stats-container">
+                  <div class="stat-container">
+                    <label for="stat_hp" class="stat-title">HP</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_hp" value="50" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_ang" class="stat-title">ANG</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_ang" value="150" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_spAng" class="stat-title">SP ANG</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_spAng" value="250" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_def" class="stat-title">DEF</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_def" value="180" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_spDef" class="stat-title">SP DEF</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_spDef" value="50" max="255" class="stat-progress"></progress>
+                  </div>
+                  <div class="stat-container">
+                    <label for="stat_speed" class="stat-title">SPEED</label>
+                    <p class="stat-value">50</p>
+                    <progress id="stat_speed" value="50" max="255" class="stat-progress"></progress>
+                  </div>
+                </section>`;
 }
 
-function getDropDownOption(type) {
-  return `<option value="${type}">${type}</option>`;
-}
 
-function checkBgDex(type) {
-  for (i = 0; i < pokemonTypes.length; i++)
-    if (type[0] == pokemonTypes[i].value) {
-      return pokemonTypes[i].gradient;
-    }
-}
