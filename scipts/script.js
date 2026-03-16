@@ -1,12 +1,15 @@
 function init() {
   initBtn();
   test();
-  loadContent(CURRENT_TAB)
+  loadContent(CURRENT_TAB);
 }
 
 function initBtn() {
-  const ballBtn = document.getElementById("ball_btn");
-  ballBtn.addEventListener("click", () => openBall(ballBtn));
+  const BALL_BTN = document.getElementById("ball_btn");
+  const POKEDEX = document.getElementById("pokedex");
+
+  BALL_BTN.addEventListener("click", () => openBall(BALL_BTN));
+  POKEDEX.addEventListener("click", openPokemonCard);
 }
 
 //===========================//
@@ -96,17 +99,10 @@ function searchPokemon() {
 //  testing & creating
 // ==========================
 function test() {
-  document.getElementById("pokedex").addEventListener("click", handelClick);
   const CARD_DIALOG = getBoxId("pokecard_dialog");
   CARD_DIALOG.addEventListener("click", pokecardClose);
   const searchInput = getBoxId("search_input");
   searchInput.addEventListener("input", searchPokemon);
-
-}
-
-function handelClick(event) {
-  const target = event.target.closest("[data-id]");
-  console.log(target);
 }
 
 //===========================
@@ -144,6 +140,25 @@ function pokecardClose(event) {
 }
 
 //=============
+//load cards
+//=============
+
+function openPokemonCard(event) {
+  const TARGET = event.target.closest("[data-id]");
+  const ID = TARGET.dataset.id;
+  getPokemonFromArray(ID)
+}
+
+function initCard(id) {
+  const NAME = getBoxId("card_name");
+
+}
+
+function getPokemonFromArray(id){
+  const VALUE = POKEMONS.find((element) => element.id == id);
+  console.log(VALUE);
+}
+//=============
 //Cards
 //=============
 
@@ -151,9 +166,8 @@ function loadContent(tab) {
   localStorage.setItem("current-tab", tab);
   hideActivNav();
   hideContent();
-  const NAV = document.getElementById(tab);
-  NAV.classList.add("activ");
-  changeContent();
+  showActivNav();
+  showActivContent();
 }
 
 function hideContent() {
@@ -163,16 +177,21 @@ function hideContent() {
   });
 }
 
+function showActivContent() {
+  hideContent();
+  const CURRENT_TAB = loadCurrentTab();
+  const CURRENT_CONTENT = document.getElementById(`${CURRENT_TAB}_container`);
+  CURRENT_CONTENT.classList.remove("d-none");
+}
+
+function showActivNav() {
+  const NAV = document.getElementById(loadCurrentTab());
+  NAV.classList.add("activ");
+}
+
 function hideActivNav() {
   const NAV = document.querySelectorAll(".tab");
   NAV.forEach((element) => {
     element.classList.remove("activ");
   });
-}
-
-function changeContent() {
-  hideContent();
-  const CURRENT_TAB = localStorage.getItem("current-tab");
-  const CURRENT_CONTENT = document.getElementById(`${CURRENT_TAB}_container`);
-  CURRENT_CONTENT.classList.remove("d-none");
 }

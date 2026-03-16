@@ -29,7 +29,6 @@ function saveToLocal() {
 
 function loadFromLocal() {
   const obj = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
-  console.log(obj);
   POKEMONS = obj;
   showPokemons();
 }
