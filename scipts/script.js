@@ -1,6 +1,7 @@
 function init() {
   initBtn();
   test();
+
   loadContent(CURRENT_TAB);
 }
 
@@ -101,6 +102,9 @@ function searchPokemon() {
 function test() {
   const CARD_DIALOG = getBoxId("pokecard_dialog");
   CARD_DIALOG.addEventListener("click", pokecardClose);
+
+  loadFromLocal();
+
   const searchInput = getBoxId("search_input");
   searchInput.addEventListener("input", searchPokemon);
 }
@@ -144,20 +148,43 @@ function pokecardClose(event) {
 //=============
 
 function openPokemonCard(event) {
-  const TARGET = event.target.closest("[data-id]");
-  const ID = TARGET.dataset.id;
-  getPokemonFromArray(ID)
+  const ID = event.target.closest("[data-id]").dataset.id;
+  const POKEMON = getPokemonInfos(ID);
+  renderCard(POKEMON);
+  openPokeCard();
 }
 
-function initCard(id) {
-  const NAME = getBoxId("card_name");
-
+function renderCard(pokemon) {
+  renderBaseData(pokemon);
+  renderStatsContent(pokemon);
 }
 
-function getPokemonFromArray(id){
-  const VALUE = POKEMONS.find((element) => element.id == id);
-  console.log(VALUE);
+function renderBaseData(pokemon) {
+  const NAME = capitalizeFirstLetter(pokemon.name);
+  const NUMBER = `<b>#${pokemon.id}</b>`;
+  const WEIGHT = `<b>WT.</b> ${hgToKg(pokemon.weight)}kg`;
+  const HEIGHT = `<b>HT.</b> ${ftToM(pokemon.height)}m`;
+  renderData(NAME, "card_name");
+  renderData(NUMBER, "number");
+  renderData(WEIGHT, "weight");
+  renderData(HEIGHT, "height");
 }
+
+function renderStatsContent(pokemon) {
+  const STATS_REF = getBoxId("stats_container");
+  STATS_REF.innerHTML = "";
+  for (let i = 0; i < pokemon.stats.length; i++) {
+    STATS_REF.innerHTML += statTemplate(pokemon.stats[i].name, pokemon.stats[i].value);
+  }
+}
+
+function getPokemonInfos(id) {
+  if (id > POKEMONS.length) {
+    id = 1;
+  }
+  return POKEMONS.find((element) => element.id == id);
+}
+
 //=============
 //Cards
 //=============

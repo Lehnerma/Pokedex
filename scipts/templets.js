@@ -10,40 +10,6 @@ function getPokedexCard(name, number, sprite_front, types) {
         </article>`;
 }
 
-function getStatsTemplate() {
-  return `
-                  <div class="stat-container">
-                    <label for="stat_hp" class="stat-title">HP</label>
-                    <p class="stat-value">50</p>
-                    <progress id="stat_hp" value="50" max="255" class="stat-progress"></progress>
-                  </div>
-                  <div class="stat-container">
-                    <label for="stat_ang" class="stat-title">ANG</label>
-                    <p class="stat-value">50</p>
-                    <progress id="stat_ang" value="150" max="255" class="stat-progress"></progress>
-                  </div>
-                  <div class="stat-container">
-                    <label for="stat_spAng" class="stat-title">SP ANG</label>
-                    <p class="stat-value">50</p>
-                    <progress id="stat_spAng" value="250" max="255" class="stat-progress"></progress>
-                  </div>
-                  <div class="stat-container">
-                    <label for="stat_def" class="stat-title">DEF</label>
-                    <p class="stat-value">50</p>
-                    <progress id="stat_def" value="180" max="255" class="stat-progress"></progress>
-                  </div>
-                  <div class="stat-container">
-                    <label for="stat_spDef" class="stat-title">SP DEF</label>
-                    <p class="stat-value">50</p>
-                    <progress id="stat_spDef" value="50" max="255" class="stat-progress"></progress>
-                  </div>
-                  <div class="stat-container">
-                    <label for="stat_speed" class="stat-title">SPEED</label>
-                    <p class="stat-value">50</p>
-                    <progress id="stat_speed" value="50" max="255" class="stat-progress"></progress>
-                  </div>`;
-}
-
 function getEvolutionTemplate(){
   return `
                 <div class="evolution-card">
@@ -62,3 +28,11 @@ function getEvolutionTemplate(){
   `
 }
 
+function statTemplate(stat, value){
+  return `
+  <div class="stat-container">
+  <label for="stat_${stat}" class="stat-title">${capitalizeFirstLetter(stat)}</label>
+  <p class="stat-value" id="stat_${stat}_value">${value}</p>
+  <progress id="stat_${stat}" value="${value}" max="255" class="stat-progress"></progress>
+</div>`
+}

@@ -18,6 +18,21 @@ function checkBgDex(type) {
     }
 }
 
+function renderData(data, boxID) {
+  const REF = getBoxId(boxID);
+  REF.innerHTML = "";
+  REF.innerHTML = data;
+}
+
+function hgToKg(value) {
+  const RESULT = (value * 0.1).toFixed(1);
+  return Number(RESULT);
+}
+
+function ftToM(value){
+  const RESULT = (value/10).toFixed(2);
+  return Number(RESULT)
+}
 //===========================
 //  Local Storage for testing.
 // ==========================

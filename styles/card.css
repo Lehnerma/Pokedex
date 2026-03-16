@@ -12,7 +12,7 @@
   border: solid 5px var(--gold-light);
   background: linear-gradient(60deg, #a9a9a9, #e8e8e8, #8e8e8e, #f0f0f0, #a9a9a9);
   background-size: 300% 300%;
-  animation: shimmer-animation 10s alternate ease-in-out; /*infinity for looping*/
+  animation: shimmer-animation 10s infinite alternate ease-in-out; /*infinite for looping*/
 }
 
 @keyframes shimmer-animation {
