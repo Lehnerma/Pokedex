@@ -47,15 +47,18 @@
         <div class="pokemon-card">
           <h3 class="pokemon-card--name title" id="card_name"></h3>
 
-          <section class="pokemon-card--img-container glass">
-            <img src="/assets/img/654.png" alt="sprite-front pokemon-name" class="sprite-front" />
-            <img src="./assets/img/type_modern/Water.svg" alt="type fire" class="type" />
+          <section class="sprite-container glass">
+            <div class="card-inner">
+              <img src="" alt="sprite-front" id="sprite_front" class="sprite-front" />
+              <img src="" alt="sprite-back" id="sprite_back" class="sprite-back" />
+            </div>
+            <img src="./assets/img/type_modern/Water.svg" alt="type" class="type" />
           </section>
 
           <section class="pokemon-card--basic glass">
-            <p id="number" class="pokemon-card--id">#4</p>
-            <p id="height">HT. 0,70</p>
-            <p id="weight">WT. 0,70</p>
+            <p id="number" class="pokemon-card--id">#0</p>
+            <p id="height">HT.</p>
+            <p id="weight">WT.</p>
           </section>
 
           <article class="pokemon-card--main glass">
@@ -66,12 +69,9 @@
                 <li id="dex" class="li-right tab activ" onclick="loadContent(`dex`)">Pokedex</li>
               </ul>
             </nav>
-            <section class="content stats-container" id="stats_container">
-            </section>
+            <section class="content stats-container" id="stats_container"></section>
 
-            <section class="content evolution-container d-none" id="evolution_container">
-              
-            </section>
+            <section class="content evolution-container d-none" id="evolution_container"></section>
 
             <section class="content dex-container d-none" id="dex_container">
               <img src="/assets/img/pokedex.svg" alt="pokedex" class="dex" />

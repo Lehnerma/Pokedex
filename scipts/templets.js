@@ -36,3 +36,14 @@ function statTemplate(stat, value){
   <progress id="stat_${stat}" value="${value}" max="255" class="stat-progress"></progress>
 </div>`
 }
+
+function spritTemplate(){
+  return `
+  <img src="/assets/img/654.png" alt="sprite-front pokemon-name" class="sprite-front" />
+  <img src="./assets/img/type_modern/Water.svg" alt="type" class="type" />`
+}
+
+function typeTemplet(type, typeSrc){
+  reutrn `
+  <img src="${typeSrc}" alt="${type}" class="type" />`
+}

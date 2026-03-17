@@ -109,6 +109,7 @@ function test() {
   searchInput.addEventListener("input", searchPokemon);
 }
 
+
 //===========================
 //  Dialog
 // ==========================
@@ -157,6 +158,7 @@ function openPokemonCard(event) {
 function renderCard(pokemon) {
   renderBaseData(pokemon);
   renderStatsContent(pokemon);
+  renderSprites(pokemon);
 }
 
 function renderBaseData(pokemon) {
@@ -178,9 +180,31 @@ function renderStatsContent(pokemon) {
   }
 }
 
+function renderSprites(pokemon) {
+  renderFrontSprite(pokemon);
+  renderBackSprite(pokemon);
+}
+
+function renderFrontSprite(pokemon) {
+  const SPRITE_FRONT_SRC = pokemon.sprite_front;
+  const SPRITE_REF = getBoxId("sprite_front");
+  SPRITE_REF.src = SPRITE_FRONT_SRC;
+  SPRITE_REF.alt = `sprite front ${pokemon.name}`;
+}
+
+function renderBackSprite(pokemon) {
+  const SPRITE_BACK_SRC = pokemon.sprite_back;
+  const SPRITE_REF = getBoxId("sprite_back");
+  SPRITE_REF.src = SPRITE_BACK_SRC;
+  SPRITE_REF.alt = `sprite back ${pokemon.name}`;
+}
+
 function getPokemonInfos(id) {
   if (id > POKEMONS.length) {
     id = 1;
+  }
+  if (id <= 0) {
+    id = POKEMONS.length;
   }
   return POKEMONS.find((element) => element.id == id);
 }

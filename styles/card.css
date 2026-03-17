@@ -37,23 +37,43 @@
     padding-left: 16px;
   }
 
-  .pokemon-card--img-container {
-    align-self: center;
-    justify-self: center;
-    background: linear-gradient(135deg, #f08030 0%, #c03028 100%);
-
+  .sprite-container {
     display: grid;
-    place-content: center;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f08030 0%, #c03028 100%);
+    position: relative;
+    padding: var(--spacing-md);
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    position: relative;
+    perspective: 1000px;
 
-    .sprite-front,
-    .sprite-back {
-      height: 160px;
+    .card-inner {
       grid-area: 1/1;
+      position: relative;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
+      display: grid;
+      image-rendering: pixelated;
+
+      .sprite-front,
+      .sprite-back {
+        height: 160px;
+        grid-area: 1/1;
+        position: relative;
+        backface-visibility: hidden;
+      }
+
+      .sprite-back {
+        transform: rotateY(180deg);
+      }
     }
+
+    &:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
     .type {
       grid-area: 1/1;
       position: absolute;
@@ -69,7 +89,7 @@
     display: grid;
     grid-template-columns: 1fr auto auto;
     align-content: center;
-    gap: 8px;
+    gap: 16px;
     background: var(--gold-bg);
     box-shadow: inset 0 0 2px 1px var(--ball-grey);
     border-radius: 8px;
@@ -101,9 +121,9 @@
           height: 100%;
           border-bottom: 1px solid black;
 
-          &:hover{
+          &:hover {
             background-color: var(--gold-old);
-            cursor: url(/assets/img/pointer/pokeball_pointer.svg) 15 15 , pointer;
+            cursor: url(/assets/img/pointer/pokeball_pointer.svg) 15 15, pointer;
           }
         }
 
