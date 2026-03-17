@@ -30,23 +30,31 @@ function closePokeCard() {
 //load cards
 //=============
 
-function openPokemonCard(event) {
+async function openPokemonCard(event) {
   const ID = event.target.closest("[data-id]").dataset.id;
   const POKEMON = getPokemonInfos(ID);
+  openLoadingScreen();
+  await loadSpeciesData(ID);
   renderCard(POKEMON);
   openPokeCard();
-  openLoadingScreen();
-  loadSpeciesData(ID);
   closeLoadingScreen();
 }
 
 function renderCard(pokemon) {
-  
-  
   renderBaseData(pokemon);
   renderStatsContent(pokemon);
   renderSprites(pokemon);
-  
+  renderText(pokemon);
+}
+
+function getPokemonInfos(id) {
+  if (id > POKEMONS.length) {
+    id = 1;
+  }
+  if (id <= 0) {
+    id = POKEMONS.length;
+  }
+  return POKEMONS.find((element) => element.id == id);
 }
 
 function renderBaseData(pokemon) {
@@ -103,19 +111,10 @@ function renderBgCard(pokemon) {
   BG_REF.style.background = GRADIENT;
 }
 
-function getPokemonInfos(id) {
-  if (id > POKEMONS.length) {
-    id = 1;
-  }
-  if (id <= 0) {
-    id = POKEMONS.length;
-  }
-  return POKEMONS.find((element) => element.id == id);
+function renderText(pokemon) {
+  const TEXT = pokemon.species_data.text;
+  renderData(TEXT, "pokedex_info");
 }
-
-//=============
-//Cards
-//=============
 
 function loadContent(tab) {
   localStorage.setItem("current-tab", tab);
