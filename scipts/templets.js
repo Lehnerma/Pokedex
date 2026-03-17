@@ -1,6 +1,6 @@
 function getPokedexCard(name, number, sprite_front, types) {
   return `
-        <article class="pokedex-card" style="background: ${checkBgDex(types)} ;" data-id="${number}">
+        <article class="pokedex-card" style="background: ${getTypeGradient(types)} ;" data-id="${number}">
           <img src=${sprite_front} alt="sprite for ${name}" class="pokedex-sprite"/>
           <h6 class="pokedex-name">${capitalizeFirstLetter(name)}</h6>
           <p class="pokedex-number caption-sm">#${number}</p>

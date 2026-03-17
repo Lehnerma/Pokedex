@@ -11,11 +11,9 @@ function createTypes(types) {
   return types.map((type) => `<span class="type ${type}" role="img" aria-label="${type}"></span>`).join("");
 }
 
-function checkBgDex(type) {
-  for (i = 0; i < POKEMON_TYPS.length; i++)
-    if (type[0] == POKEMON_TYPS[i].value) {
-      return POKEMON_TYPS[i].gradient;
-    }
+function getTypeGradient(type) {
+    const TYPE = POKEMON_TYPS.find((el) => type[0] == el.value);
+    return TYPE.gradient;
 }
 
 function renderData(data, boxID) {
