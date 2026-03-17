@@ -12,9 +12,9 @@ function createTypes(types) {
 }
 
 function checkBgDex(type) {
-  for (i = 0; i < pokemonTypes.length; i++)
-    if (type[0] == pokemonTypes[i].value) {
-      return pokemonTypes[i].gradient;
+  for (i = 0; i < POKEMON_TYPS.length; i++)
+    if (type[0] == POKEMON_TYPS[i].value) {
+      return POKEMON_TYPS[i].gradient;
     }
 }
 
@@ -29,9 +29,9 @@ function hgToKg(value) {
   return Number(RESULT);
 }
 
-function ftToM(value){
-  const RESULT = (value/10).toFixed(2);
-  return Number(RESULT)
+function ftToM(value) {
+  const RESULT = (value / 10).toFixed(2);
+  return Number(RESULT);
 }
 //===========================
 //  Local Storage for testing.

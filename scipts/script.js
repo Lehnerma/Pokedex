@@ -183,6 +183,7 @@ function renderStatsContent(pokemon) {
 function renderSprites(pokemon) {
   renderFrontSprite(pokemon);
   renderBackSprite(pokemon);
+  // renderType(pokemon);
 }
 
 function renderFrontSprite(pokemon) {
@@ -198,6 +199,14 @@ function renderBackSprite(pokemon) {
   SPRITE_REF.src = SPRITE_BACK_SRC;
   SPRITE_REF.alt = `sprite back ${pokemon.name}`;
 }
+
+// function renderType(pokemon){
+//   const TYPE = pokemon.types[0];
+//   const TYPE_REF = getBoxId("type_modern")
+//   const test = POKEMON_TYPES.find((element) => TYPE == element.value)
+//   console.log(test);
+  
+// }
 
 function getPokemonInfos(id) {
   if (id > POKEMONS.length) {

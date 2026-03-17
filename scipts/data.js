@@ -6,9 +6,9 @@ let OFFSET_FOR_URL = 0;
 let LOAD_LIMIT = 20;
 let CURRENT_LENGTH_POKEMONS = 0;
 let POKEMONS = [];
-let CURRENT_TAB = loadCurrentTab() ?? "stats"
+let CURRENT_TAB = loadCurrentTab() ?? "stats";
 
-const pokemonTypes = [
+const POKEMON_TYPS = [
   { name: "Normal", value: "normal", color: "#A8A77A", gradient: "linear-gradient(135deg, #A8A77A 0%, #7A7955 100%)", imgSrc: "assets/img/type_modern/Normal.svg" },
   { name: "Fire", value: "fire", color: "#EE8130", gradient: "linear-gradient(135deg, #F08030 0%, #C03028 100%)", imgSrc: "assets/img/type_modern/Fire.svg" },
   { name: "Water", value: "water", color: "#6390F0", gradient: "linear-gradient(135deg, #6390F0 0%, #3859A0 100%)", imgSrc: "assets/img/type_modern/Water.svg" },
