@@ -10,40 +10,31 @@ function getPokedexCard(name, number, sprite_front, types) {
         </article>`;
 }
 
-function getEvolutionTemplate(){
+function getEvolutionTemplate(name, src) {
   return `
                 <div class="evolution-card">
-                <img src="/assets/img/464.png" alt="pokemon-name" class="evolution-img" />
-                <img src="/assets/img/arrow.svg" alt="arrow right" class="arrow" />
-                <p>LV: 38</p>
+                <img src=${src} alt="${name}" class="evolution-img" />
               </div>
-              <div class="evolution-card">
-                <img src="/assets/img/464.png" alt="pokemon-name" class="evolution-img" />
-                <img src="/assets/img/arrow.svg" alt="arrow right" class="arrow" />
-                <p>LV: 38</p>
-              </div>
-              <div class="evolution-card">
-                <img src="/assets/img/464.png" alt="pokemon-name" class="evolution-img" />
-              </div>
-  `
+  `;
 }
+//                <img src="/assets/img/arrow.svg" alt="arrow right" class="arrow" />
 
-function statTemplate(stat, value){
+function statTemplate(stat, value) {
   return `
   <div class="stat-container">
   <label for="stat_${stat}" class="stat-title">${capitalizeFirstLetter(stat)}</label>
   <p class="stat-value" id="stat_${stat}_value">${value}</p>
   <progress id="stat_${stat}" value="${value}" max="255" class="stat-progress"></progress>
-</div>`
+</div>`;
 }
 
-function spritTemplate(){
+function spritTemplate() {
   return `
   <img src="/assets/img/654.png" alt="sprite-front pokemon-name" class="sprite-front" />
-  <img src="./assets/img/type_modern/Water.svg" alt="type" class="type" />`
+  <img src="./assets/img/type_modern/Water.svg" alt="type" class="type" />`;
 }
 
-function typeTemplet(type, typeSrc){
-  reutrn `
-  <img src="${typeSrc}" alt="${type}" class="type" />`
+function typeTemplet(type, typeSrc) {
+  reutrn`
+  <img src="${typeSrc}" alt="${type}" class="type" />`;
 }

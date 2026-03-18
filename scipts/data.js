@@ -8,6 +8,7 @@ let LOAD_LIMIT = 20;
 let CURRENT_LENGTH_POKEMONS = 0;
 let POKEMONS = [];
 let CURRENT_TAB = loadCurrentTab() ?? "stats";
+let EVOLUTION = [];
 
 const POKEMON_TYPS = [
   { name: "Normal", value: "normal", color: "#A8A77A", gradient: "linear-gradient(135deg, #A8A77A 0%, #7A7955 100%)", imgSrc: "assets/img/type_modern/Normal.svg" },

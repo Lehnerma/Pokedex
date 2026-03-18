@@ -27,7 +27,7 @@ function closePokeCard() {
 }
 
 //=============
-//load cards
+//load cards data
 //=============
 
 async function openPokemonCard(event) {
@@ -35,6 +35,7 @@ async function openPokemonCard(event) {
   const POKEMON = getPokemonInfos(ID);
   openLoadingScreen();
   await loadSpeciesData(ID);
+  await loadEvolutionChain(ID);
   renderCard(POKEMON);
   openPokeCard();
   closeLoadingScreen();
@@ -45,6 +46,7 @@ function renderCard(pokemon) {
   renderStatsContent(pokemon);
   renderSprites(pokemon);
   renderText(pokemon);
+  renderEvolutionImg(pokemon);
 }
 
 function getPokemonInfos(id) {
@@ -115,6 +117,76 @@ function renderText(pokemon) {
   const TEXT = pokemon.species_data.text;
   renderData(TEXT, "pokedex_info");
 }
+
+function renderEvolutionImg(pokemon) {
+  const EVOLUTION_NAMES = pokemon.evolution_chain.names;
+  const EVOLUTION_CONTAINER = getBoxId("evolution_container");
+  EVOLUTION_CONTAINER.innerHTML = "";
+  EVOLUTION_NAMES.forEach((name) => {
+    const DATA = POKEMONS.find((poke) => poke.name == name);
+    EVOLUTION_CONTAINER.innerHTML += getEvolutionTemplate(capitalizeFirstLetter(DATA.name), DATA.sprite_front);
+  });
+}
+//========
+//load evo, info
+//========
+async function loadSpeciesData(id) {
+  const POKEMON = POKEMONS.find((poke) => poke.id == id);
+  checkPokemonSpecies(POKEMON, id);
+  try {
+    const RESPONSE = await fetch(SPECIES_URL(id));
+    const RESULT = await RESPONSE.json();
+    saveSpeciesData(POKEMON, RESULT);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function checkPokemonSpecies(pokemon, id) {
+  if (!pokemon) {
+    console.error(`Pokemon #${id} fehler`);
+    return;
+  }
+  if (pokemon.species_data) return;
+}
+
+function saveSpeciesData(pokemon, data) {
+  pokemon.evolution_chain = data.evolution_chain;
+  pokemon.species_data = {
+    name: data.name,
+    text: data.flavor_text_entries[0].flavor_text,
+  };
+}
+
+async function loadEvolutionChain(id) {
+  const POKEMON = POKEMONS.find((poke) => poke.id == id);
+  if (POKEMON.evolution_chain.names) {
+    console.log(`there are some datas.`, POKEMON.evolution_chain.names);
+    return;
+  }
+  const URL = POKEMON.evolution_chain.url;
+  try {
+    const RESPONSE = await fetch(URL);
+    const RESULT = await RESPONSE.json();
+    POKEMON.evolution_chain.names = getAllEvolutionNames(RESULT.chain);
+  } catch (error) {
+    console.error(error);
+  }
+}
+// rekursive function
+function getAllEvolutionNames(chain, namesArray = []) {
+  namesArray.push(chain.species.name);
+
+  chain.evolves_to.forEach((nextStep) => {
+    getAllEvolutionNames(nextStep, namesArray);
+  });
+
+  return [...new Set(namesArray)];
+}
+
+//=============
+//cards - content tabs
+//=============
 
 function loadContent(tab) {
   localStorage.setItem("current-tab", tab);

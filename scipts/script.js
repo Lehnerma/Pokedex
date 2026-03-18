@@ -7,6 +7,8 @@ function init() {
 function initBtn() {
   const BALL_BTN = document.getElementById("ball_btn");
   BALL_BTN.addEventListener("click", () => openBall(BALL_BTN));
+  const SEARCH = getBoxId("search_input");
+  SEARCH.addEventListener("input", searchPokemon);
 }
 
 function showPokemons() {
@@ -80,47 +82,6 @@ function saveDataToPokemon(pokemon, data) {
   }));
 }
 
-//========
-//load evo, info
-//========
-async function loadSpeciesData(id) {
-  const POKEMON = POKEMONS.find((poke) => poke.id == id);
-  checkPokemonSpecies(POKEMON, id);
-  try {
-    const RESPONSE = await fetch(SPECIES_URL(id));
-    const RESULT = await RESPONSE.json();
-    saveSpeciesData(POKEMON, RESULT);
-    console.log(POKEMON);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function checkPokemonSpecies(pokemon, id) {
-  if (!pokemon) {
-    console.error(`Pokemon #${id} fehler`);
-    return;
-  }
-  if (pokemon.species_data) return;
-}
-
-function saveSpeciesData(pokemon, data) {
-  pokemon.species_data = {
-    name: data.name,
-    evolution_chain: data.evolution_chain,
-    text: data.flavor_text_entries[0].flavor_text,
-  };
-}
-
-async function loadEvolutionChain(params) {
-  try {
-    const RESULT = await fetch()
-  } catch (error) {
-    console.error(error);
-    
-  }
-}
-
 function searchPokemon() {
   const searchInput = getBoxId("search_input").value.trim().toLowerCase();
   const pokedex = getBoxId("pokedex");
@@ -137,12 +98,7 @@ function searchPokemon() {
 //  testing & creating
 // ==========================
 function test() {
-
-
-  loadFromLocal();
-
-  const searchInput = getBoxId("search_input");
-  searchInput.addEventListener("input", searchPokemon);
+  // loadFromLocal();
 }
 
 //===========================
