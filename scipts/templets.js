@@ -17,7 +17,6 @@ function getEvolutionTemplate(name, src) {
               </div>
   `;
 }
-//                <img src="/assets/img/arrow.svg" alt="arrow right" class="arrow" />
 
 function statTemplate(stat, value) {
   return `

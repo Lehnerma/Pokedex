@@ -3,8 +3,8 @@
   min-width: 300px;
   width: 100%;
   max-width: 400px;
-  height: 600px;
-  padding: var(--spacing-md);
+  height: 640px;
+
   border-radius: 16px;
   overflow: hidden;
 
@@ -15,6 +15,9 @@
   animation: shimmer-animation 10s infinite alternate ease-in-out; /*infinite for looping*/
 }
 
+.dialog {
+  margin: auto;
+}
 @keyframes shimmer-animation {
   0% {
     background-position: 0% 50%;
@@ -29,7 +32,7 @@
 
 .pokemon-card {
   display: grid;
-  grid-template-rows: 32px 200px 32px 1fr;
+  grid-template-rows: 32px 200px 32px 1fr 40px;
   gap: 8px;
   height: 100%;
 
@@ -159,7 +162,7 @@
       .evolution-card {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
 
         .arrow {
@@ -177,6 +180,38 @@
         height: 45px;
         object-fit: cover;
       }
+    }
+  }
+  .main-nav-container {
+    display: flex;
+    justify-content: space-between;
+    .main-nav-btn {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 45px;
+      width: 45px;
+      border: none;
+      background-color: transparent;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+
+    .left {
+      background-image: url(/assets/img/arrow_left.svg);
+    }
+    .close {
+      background-image: url(/assets/img/cancel.svg);
+    }
+    .right {
+      background-image: url(/assets/img/arrow_right.svg);
     }
   }
 }

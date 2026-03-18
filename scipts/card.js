@@ -30,18 +30,23 @@ function closePokeCard() {
 //load cards data
 //=============
 
-async function openPokemonCard(event) {
+function openPokemonCard(event) {
   const ID = event.target.closest("[data-id]").dataset.id;
-  const POKEMON = getPokemonInfos(ID);
+  renderPokemonCard(ID);
+}
+
+async function renderPokemonCard(id) {
+  const POKEMON = getPokemonFromArray(id);
   openLoadingScreen();
-  await loadSpeciesData(ID);
-  await loadEvolutionChain(ID);
-  renderCard(POKEMON);
+  await loadSpeciesData(id);
+  await loadEvolutionChain(id);
+  renderDatas(POKEMON);
   openPokeCard();
+  nextCardBtn(POKEMON);
   closeLoadingScreen();
 }
 
-function renderCard(pokemon) {
+function renderDatas(pokemon) {
   renderBaseData(pokemon);
   renderStatsContent(pokemon);
   renderSprites(pokemon);
@@ -49,13 +54,26 @@ function renderCard(pokemon) {
   renderEvolutionImg(pokemon);
 }
 
-function getPokemonInfos(id) {
-  if (id > POKEMONS.length) {
-    id = 1;
+function nextCardBtn(pokemon) {
+  let CURRENT_ID = pokemon.id;
+  const BTN_LEFT = getBoxId("left");
+  const BTN_RIGHT = getBoxId("right");
+  BTN_LEFT.addEventListener("click", () => renderPokemonCard(checkId(--CURRENT_ID)));
+  BTN_RIGHT.addEventListener("click", () => renderPokemonCard(checkId(++CURRENT_ID)));
+}
+
+function checkId(cur_id) {
+  let NEXT_ID = cur_id;
+  if (cur_id > POKEMONS.length) {
+    NEXT_ID = 1;
   }
-  if (id <= 0) {
-    id = POKEMONS.length;
+  if (cur_id == 0) {
+    NEXT_ID = POKEMONS.length;
   }
+  return NEXT_ID;
+}
+
+function getPokemonFromArray(id) {
   return POKEMONS.find((element) => element.id == id);
 }
 
@@ -124,6 +142,7 @@ function renderEvolutionImg(pokemon) {
   EVOLUTION_CONTAINER.innerHTML = "";
   EVOLUTION_NAMES.forEach((name) => {
     const DATA = POKEMONS.find((poke) => poke.name == name);
+    if (!DATA) return;
     EVOLUTION_CONTAINER.innerHTML += getEvolutionTemplate(capitalizeFirstLetter(DATA.name), DATA.sprite_front);
   });
 }
@@ -131,6 +150,8 @@ function renderEvolutionImg(pokemon) {
 //load evo, info
 //========
 async function loadSpeciesData(id) {
+  const ALL_BTN = document.querySelectorAll("button");
+  ALL_BTN.forEach((btn) => (btn.disabled = true));
   const POKEMON = POKEMONS.find((poke) => poke.id == id);
   checkPokemonSpecies(POKEMON, id);
   try {
@@ -139,6 +160,8 @@ async function loadSpeciesData(id) {
     saveSpeciesData(POKEMON, RESULT);
   } catch (error) {
     console.error(error);
+  } finally {
+    ALL_BTN.forEach((btn) => (btn.disabled = false));
   }
 }
 
@@ -160,10 +183,6 @@ function saveSpeciesData(pokemon, data) {
 
 async function loadEvolutionChain(id) {
   const POKEMON = POKEMONS.find((poke) => poke.id == id);
-  if (POKEMON.evolution_chain.names) {
-    console.log(`there are some datas.`, POKEMON.evolution_chain.names);
-    return;
-  }
   const URL = POKEMON.evolution_chain.url;
   try {
     const RESPONSE = await fetch(URL);

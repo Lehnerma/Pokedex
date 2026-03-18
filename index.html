@@ -73,6 +73,11 @@
               <p class="pokedex-info" id="pokedex_info"></p>
             </section>
           </article>
+          <section class="main-nav-container">
+            <button class="main-nav-btn left" id="left"></button>
+            <button class="main-nav-btn close" id="close" onclick="closePokeCard()"></button>
+            <button class="main-nav-btn right" id="right"></button>
+          </section>
         </div>
       </dialog>
 
@@ -85,7 +90,6 @@
       <div class="test-div">
         <button onclick="getPokemons()">load pokemon</button>
         <button onclick="openPokeCard()">Open dialog</button>
-        <button onclick="openLoadingScreen()">loading</button>
         <button onclick="saveToLocal()">save Local</button>
         <button onclick="loadFromLocal()">load Local</button>
       </div>

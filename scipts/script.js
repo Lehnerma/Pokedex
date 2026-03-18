@@ -1,7 +1,7 @@
 function init() {
   initBtn();
   initCard();
-  test();
+  // test();
 }
 
 function initBtn() {
@@ -98,7 +98,7 @@ function searchPokemon() {
 //  testing & creating
 // ==========================
 function test() {
-  // loadFromLocal();
+  loadFromLocal();
 }
 
 //===========================
