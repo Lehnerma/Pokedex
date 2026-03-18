@@ -112,7 +112,14 @@ function saveSpeciesData(pokemon, data) {
   };
 }
 
-async function loadEvolutionChain(params) {}
+async function loadEvolutionChain(params) {
+  try {
+    const RESULT = await fetch()
+  } catch (error) {
+    console.error(error);
+    
+  }
+}
 
 function searchPokemon() {
   const searchInput = getBoxId("search_input").value.trim().toLowerCase();
