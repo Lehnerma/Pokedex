@@ -17,9 +17,11 @@ header .header-container {
   will-change: opacity;
   transition: opacity 1500ms ease-out;
 }
+
 main {
   transition: opacity 1500ms ease-out;
 }
+
 footer {
   background-color: var(--ball-white);
   border-top: solid 10px var(--ball-black);
@@ -81,7 +83,6 @@ footer {
   }
 }
 
-/* Keyframe Animation für das Öffnen */
 @keyframes open-header {
   0% {
     grid-template-rows: 50vh 0 50vh;
@@ -119,7 +120,6 @@ footer {
   }
 }
 
-/* Open Main Section */
 body.open {
   animation: open-header 800ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
