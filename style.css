@@ -2,14 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* cursor: url(../assets/img/pointer/pokeball_pointer.svg) 0 0, pointer; */
   font-family: var(--lato), sans-serif;
 }
-body {
-  overflow: auto;
-}
+
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background-color: var(--ball-red);
   border-bottom: solid 10px var(--ball-black);
   display: flex;
@@ -26,7 +25,9 @@ header {
     padding: 1rem;
     z-index: 2;
     text-shadow: 2px 2px 0 var(--ball-white);
-
+    @media (max-width: 350px) {
+      font-size: 1.8rem;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -109,12 +110,53 @@ header {
 }
 
 main {
-  /* only for programming */
   width: 100%;
   justify-self: center;
   display: grid;
   align-items: center;
-  grid-template-rows: 80px 1fr 80px;
+  grid-template-rows: auto 1fr;
+}
+
+.nav-main {
+  position: sticky;
+  top: 100px;
+  z-index: 5;
+  width: 100%;
+  background-color: var(--ball-black);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 8px;
+  padding: var(--spacing-sm);
+
+  .serch-container {
+    color: white;
+  }
+
+  .load-more {
+    color: rgb(0, 0, 0);
+    background: var(--gold-bg);
+    font-family: var(--lato);
+
+    border-radius: 8px;
+    font-size: 18px;
+    padding: 0 16px;
+
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+}
+
+.pokedex {
+  overflow-y: auto;
 }
 
 .loading-screen {
@@ -126,7 +168,7 @@ main {
   }
 }
 .loading-screen::backdrop {
-  opacity: 1;
+  opacity: 0;
 }
 
 /****************** 
@@ -141,4 +183,24 @@ Pokemon Card
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  p {
+    font-family: var(--pixel1);
+  }
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
 }
