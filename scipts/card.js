@@ -40,8 +40,7 @@ function openPokemonCard(event) {
 
 async function renderPokemonCard(id) {
   const POKEMON = getPokemonFromArray(id);
-  openLoadingScreen();
-  await loadSpeciesData(id);
+  openLoadingScreen(), await loadSpeciesData(id);
   await loadEvolutionChain(id);
   renderDatas(POKEMON);
   openPokeCard();

@@ -31,7 +31,7 @@ function openBall(btn) {
   setTimeout(() => {
     btn.classList.remove("shake");
     addClassBody();
-  }, 1000); // is also the loading screen for the first fetch
+  }, 1500); // is also the loading screen for the first fetch
 }
 //===========================
 //  get pokemon datas

@@ -20,7 +20,7 @@
   &:hover {
     background-color: #b9b9b9;
     transform: scale(1.04);
-    box-shadow: 2px 2px 4px var(--ball-red);
+    box-shadow: 0 0 2px 2px var(--gold-old);
   }
 }
 

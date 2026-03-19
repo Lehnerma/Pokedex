@@ -134,12 +134,13 @@ main {
   }
 
   .load-more {
-    color: white;
-    background-color: var(--ball-red);
-    font-family: var(--pixel1);
-    height: 30px;
-    width: 150px;
+    color: rgb(0, 0, 0);
+    background: var(--gold-bg);
+    font-family: var(--lato);
+
     border-radius: 8px;
+    font-size: 18px;
+    padding: 0 16px;
 
     transition: transform 0.2s ease-in-out;
     &:hover {

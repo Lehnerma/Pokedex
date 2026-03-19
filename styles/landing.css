@@ -7,16 +7,15 @@ body {
 }
 
 .open {
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: 100px 1fr 50px;
 }
 
-/* ausbleden des inhalts für die landing page */
 main,
 footer,
 header .header-container {
   opacity: 0;
   will-change: opacity;
-  transition: opacity 1000ms ease-out;
+  transition: opacity 1500ms ease-out;
 }
 main {
   transition: opacity 1500ms ease-out;
@@ -57,9 +56,8 @@ footer {
   }
 }
 
-/* Shake Animation */
 .shake {
-  animation: pokeball-shake 1000ms ease-in-out;
+  animation: pokeball-shake 1500ms ease-in-out;
 }
 
 @keyframes pokeball-shake {
@@ -92,7 +90,7 @@ footer {
     grid-template-rows: 50vh 1fr 50vh;
   }
   100% {
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: 100px 1fr 50px;
   }
 }
 
