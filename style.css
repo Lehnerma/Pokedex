@@ -10,7 +10,6 @@ header {
   position: sticky;
   top: 0;
   z-index: 5;
-  /* position: relative; */
   background-color: var(--ball-red);
   border-bottom: solid 10px var(--ball-black);
   display: flex;
@@ -128,37 +127,28 @@ main {
   justify-content: space-evenly;
   align-items: center;
   gap: 8px;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm);
+
   .serch-container {
     color: white;
   }
-  .btn {
-    width: 45px;
-    height: 45px;
-    background-position: center;
-    background-size: cover;
-    background-color: transparent;
-    border: none;
-  }
-  .save-local {
-    background-image: url(./assets/img/floppy-disk.svg);
-    transition: transform 0.2s ease-in-out;
-    &:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-    &:active {
-      transform: scale(1);
-    }
-  }
+
   .load-more {
     color: white;
     background-color: var(--ball-red);
     font-family: var(--pixel1);
+    height: 30px;
     width: 150px;
+    border-radius: 8px;
 
+    transition: transform 0.2s ease-in-out;
     &:hover {
+      transform: scale(1.05);
       cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(1);
     }
   }
 }

@@ -22,7 +22,7 @@
     <title>Pokedex</title>
   </head>
   <!-- open class entfernen um den ball normal zu offnen. -->
-  <body onload="init()" class="open">
+  <body onload="init()" class="">
     <header id="pokedex-header">
       <div class="header-container max-dp">
         <span class="head-faces1"></span>
@@ -38,11 +38,10 @@
       <!-- main navigation -->
       <nav class="nav-main">
         <section class="serch-container">
-          <input type="text" id="search_input" placeholder="Pokemon" />
+          <input type="text" id="search_input" placeholder="search for Pokemon.." />
           <button>🔍</button>
         </section>
-        <button onclick="getPokemons()" class="load-more">load more pokemon</button>
-        <button onclick="saveToLocal()" class="btn save-local"></button>
+        <button onclick="getPokemons()" class="btn load-more">load more pokemon</button>
       </nav>
 
       <div class="pokedex" id="pokedex"></div>
@@ -90,12 +89,6 @@
       </dialog>
     </main>
 
-    <footer id="pokedex-footer">
-      <div class="test-div">
-        <button onclick="openPokeCard()">Open dialog</button>
-
-        <button onclick="loadFromLocal()">load Local</button>
-      </div>
-    </footer>
+    <footer id="pokedex-footer"></footer>
   </body>
 </html>

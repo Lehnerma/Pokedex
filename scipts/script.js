@@ -101,6 +101,13 @@ function test() {
   loadFromLocal();
 }
 
+function saveLocal() {
+  if (confirm("Would you store the array local?")) {
+    saveToLocal();
+  } else {
+    return;
+  }
+}
 //===========================
 //  Dialog
 // ==========================
