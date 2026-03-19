@@ -1,82 +1,63 @@
 :root {
-  /* Normal */
   --normal: #a8a77a;
   --bg-normal: linear-gradient(135deg, #a8a77a 0%, #7a7955 100%);
 
-  /* Fire */
   --fire: #ee8130;
   --bg-fire: linear-gradient(135deg, #f08030 0%, #c03028 100%);
 
-  /* Water */
   --water: #6390f0;
   --bg-water: linear-gradient(135deg, #6390f0 0%, #3859a0 100%);
 
-  /* Grass */
   --grass: #7ac74c;
   --bg-grass: linear-gradient(135deg, #7ac74c 0%, #4e8234 100%);
 
-  /* Electric */
   --electric: #f7d02c;
   --bg-electric: linear-gradient(135deg, #f7d02c 0%, #b9a01b 100%);
 
-  /* Ice */
   --ice: #96d9d6;
   --bg-ice: linear-gradient(135deg, #98d8d8 0%, #6ab0b0 100%);
 
-  /* Fighting */
   --fighting: #c22e28;
   --bg-fighting: linear-gradient(135deg, #c03028 0%, #7d1f1a 100%);
 
-  /* Poison */
   --poison: #a33ea1;
   --bg-poison: linear-gradient(135deg, #a040a0 0%, #682a68 100%);
 
-  /* Ground */
   --ground: #e2bf65;
   --bg-ground: linear-gradient(135deg, #e0c068 0%, #8e7a42 100%);
 
-  /* Flying */
   --flying: #a98ff3;
   --bg-flying: linear-gradient(135deg, #a890f0 0%, #705898 100%);
 
-  /* Psychic */
   --psychic: #f95587;
   --bg-psychic: linear-gradient(135deg, #f85888 0%, #a13959 100%);
 
-  /* Bug */
   --bug: #a6b91a;
   --bg-bug: linear-gradient(135deg, #a8b820 0%, #6d7815 100%);
 
-  /* Rock */
   --rock: #b6a136;
   --bg-rock: linear-gradient(135deg, #b8a038 0%, #786824 100%);
 
-  /* Ghost */
   --ghost: #735797;
   --bg-ghost: linear-gradient(135deg, #705898 0%, #483960 100%);
 
-  /* Dragon */
   --dragon: #6f35fc;
   --bg-dragon: linear-gradient(135deg, #7038f8 0%, #4824a0 100%);
 
-  /* Steel */
   --steel: #b7b7ce;
   --bg-steel: linear-gradient(135deg, #b8b8d0 0%, #787887 100%);
 
-  /* Dark */
   --dark: #705746;
   --bg-dark: linear-gradient(135deg, #705848 0%, #48392f 100%);
 
-  /* Fairy */
   --fairy: #d685ad;
   --bg-fairy: linear-gradient(135deg, #ee99ac 0%, #9b6470 100%);
 
-  /* Pokeball */
   --ball-red: #ee1515;
   --ball-white: #f0f0f0;
   --ball-grey: #222224;
   --ball-black: black;
-  /* Pikachu yellow */
+
   --yellow: #f4dc26;
 
   --gold-bg: linear-gradient(45deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa8939 100%);

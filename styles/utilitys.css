@@ -6,11 +6,11 @@
   --spacing-lg: 2rem;
   --spacing-xl: 2.5rem;
   --spacing-xxl: 3rem;
-
   --max-dp-width: 1440px;
 }
+
 .d-none {
-  display: none !important;  /* iportant becaus the card styling is nesting css*/
+  display: none !important;
 }
 
 .max-dp {

@@ -1,7 +1,6 @@
 function init() {
   initBtn();
   initCard();
-  // test();
 }
 
 function initBtn() {
@@ -18,9 +17,6 @@ function showPokemons() {
   }
 }
 
-//===========================//
-//  Landing page
-// ==========================//
 function addClassBody() {
   document.body.classList.add("open");
 }
@@ -31,11 +27,9 @@ function openBall(btn) {
   setTimeout(() => {
     btn.classList.remove("shake");
     addClassBody();
-  }, 1500); // is also the loading screen for the first fetch
+  }, 1500);
 }
-//===========================
-//  get pokemon datas
-// ==========================
+
 async function getPokemons() {
   CURRENT_LENGTH_POKEMONS = POKEMONS.length;
   openLoadingScreen();
@@ -94,23 +88,6 @@ function searchPokemon() {
     }
   }
 }
-//===========================
-//  testing & creating
-// ==========================
-function test() {
-  loadFromLocal();
-}
-
-function saveLocal() {
-  if (confirm("Would you store the array local?")) {
-    saveToLocal();
-  } else {
-    return;
-  }
-}
-//===========================
-//  Dialog
-// ==========================
 
 function openLoadingScreen() {
   if (!POKEMONS.length > 0) return;

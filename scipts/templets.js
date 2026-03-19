@@ -34,6 +34,6 @@ function spritTemplate() {
 }
 
 function typeTemplet(type, typeSrc) {
-  reutrn`
+  return `
 <img src="${typeSrc}" alt="${type}" class="type" />`;
 }

@@ -17,6 +17,7 @@
   grid-template-areas:
     "sprite name name"
     "sprite number types";
+
   &:hover {
     background-color: #b9b9b9;
     transform: scale(1.04);
@@ -38,7 +39,6 @@
 
 .pokedex-number {
   font-family: var(--pixel2);
-
   grid-area: number;
 }
 

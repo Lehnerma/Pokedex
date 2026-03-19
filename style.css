@@ -138,17 +138,14 @@ main {
     color: rgb(0, 0, 0);
     background: var(--gold-bg);
     font-family: var(--lato);
-
     border-radius: 8px;
     font-size: 18px;
     padding: 0 16px;
-
     transition: transform 0.2s ease-in-out;
     &:hover {
       transform: scale(1.05);
       cursor: pointer;
     }
-
     &:active {
       transform: scale(1);
     }
@@ -167,17 +164,15 @@ main {
     height: 100%;
   }
 }
+
 .loading-screen::backdrop {
   opacity: 0;
 }
 
-/****************** 
-Pokemon Card 
-****************** */
 .pokecard-dialog {
-  /* position of the dialog in the middle */
   margin: auto;
 }
+
 .pokecard-dialog::backdrop {
   background: url(./assets/img/johto.png);
   background-repeat: no-repeat;

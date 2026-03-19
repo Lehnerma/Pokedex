@@ -3,7 +3,6 @@ function initCard() {
   POKEDEX.addEventListener("click", openPokemonCard);
   const CARD_DIALOG = getBoxId("pokecard_dialog");
   CARD_DIALOG.addEventListener("click", pokecardClose);
-
   loadContent(CURRENT_TAB);
 }
 
@@ -26,15 +25,10 @@ function closePokeCard() {
   dialog.close();
 }
 
-//=============
-//load cards data
-//=============
-
 function openPokemonCard(event) {
   const CARD = event.target.closest("[data-id]");
   if (!CARD) return;
   const ID = CARD.dataset.id;
-
   renderPokemonCard(ID);
 }
 
@@ -148,9 +142,7 @@ function renderEvolutionImg(pokemon) {
     EVOLUTION_CONTAINER.innerHTML += getEvolutionTemplate(capitalizeFirstLetter(DATA.name), DATA.sprite_front);
   });
 }
-//========
-//load evo, info
-//========
+
 async function loadSpeciesData(id) {
   const ALL_BTN = document.querySelectorAll("button");
   ALL_BTN.forEach((btn) => (btn.disabled = true));
@@ -194,20 +186,14 @@ async function loadEvolutionChain(id) {
     console.error(error);
   }
 }
-// rekursive function
+
 function getAllEvolutionNames(chain, namesArray = []) {
   namesArray.push(chain.species.name);
-
   chain.evolves_to.forEach((nextStep) => {
     getAllEvolutionNames(nextStep, namesArray);
   });
-
   return [...new Set(namesArray)];
 }
-
-//=============
-//cards - content tabs
-//=============
 
 function loadContent(tab) {
   localStorage.setItem("current-tab", tab);
