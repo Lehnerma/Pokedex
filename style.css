@@ -5,11 +5,12 @@
   /* cursor: url(../assets/img/pointer/pokeball_pointer.svg) 0 0, pointer; */
   font-family: var(--lato), sans-serif;
 }
-body {
-  overflow: auto;
-}
+
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  /* position: relative; */
   background-color: var(--ball-red);
   border-bottom: solid 10px var(--ball-black);
   display: flex;
@@ -109,12 +110,22 @@ header {
 }
 
 main {
-  /* only for programming */
   width: 100%;
   justify-self: center;
   display: grid;
   align-items: center;
-  grid-template-rows: 80px 1fr 80px;
+  grid-template-rows: auto 1fr;
+}
+
+.nav-main {
+  background-color: var(--ball-black);
+  position: sticky;
+  top: 100px;
+  z-index: 5;
+}
+
+.pokedex {
+  overflow-y: auto;
 }
 
 .loading-screen {
@@ -126,7 +137,7 @@ main {
   }
 }
 .loading-screen::backdrop {
-  opacity: 1;
+  opacity: 0;
 }
 
 /****************** 
@@ -141,4 +152,10 @@ Pokemon Card
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
 }

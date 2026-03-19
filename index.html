@@ -35,12 +35,14 @@
     </header>
 
     <main class="max-dp">
-      <article class="testing">
+      <nav class="nav-main">
         <section class="pokedex-serch">
+          <label for="search_input">Searching</label>
           <input type="text" id="search_input" placeholder="Pokemon" />
           <button>🔍</button>
         </section>
-      </article>
+        <button onclick="getPokemons()">load pokemon</button>
+      </nav>
       <div class="pokedex" id="pokedex"></div>
 
       <dialog id="pokecard_dialog" class="pokecard-dialog card-shimmer-border">
@@ -88,7 +90,6 @@
 
     <footer id="pokedex-footer">
       <div class="test-div">
-        <button onclick="getPokemons()">load pokemon</button>
         <button onclick="openPokeCard()">Open dialog</button>
         <button onclick="saveToLocal()">save Local</button>
         <button onclick="loadFromLocal()">load Local</button>
