@@ -23,6 +23,7 @@ function addClassBody() {
 
 function openBall(btn) {
   btn.classList.add("shake");
+  btn.disabled = true;
   getPokemons();
   setTimeout(() => {
     btn.classList.remove("shake");
