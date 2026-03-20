@@ -7,10 +7,14 @@ function initBtn() {
   const BALL_BTN = document.getElementById("ball_btn");
   BALL_BTN.addEventListener("click", () => openBall(BALL_BTN));
   const SEARCH = getBoxId("search_input");
-  SEARCH.addEventListener("input", searchPokemon);
+  const SEARCH_BTN = getBoxId("search_btn");
+  const RESET_SEARCH_BTN = getBoxId("reset_btn");
+  SEARCH.addEventListener("change", searchPokemon);
+  SEARCH_BTN.addEventListener("click", searchPokemon);
+  RESET_SEARCH_BTN.addEventListener("click", resetInput);
 }
 
-function showPokemons() {
+function renderPokemons() {
   let pokedex = getBoxId("pokedex");
   for (let i = CURRENT_LENGTH_POKEMONS; i < POKEMONS.length; i++) {
     pokedex.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
@@ -43,7 +47,7 @@ async function getPokemons() {
   } catch (er) {
     console.error(er);
   }
-  showPokemons();
+  renderPokemons();
   closeLoadingScreen();
   OFFSET_FOR_URL = POKEMONS.length;
 }
@@ -78,15 +82,18 @@ function saveDataToPokemon(pokemon, data) {
 }
 
 function searchPokemon() {
-  const searchInput = getBoxId("search_input").value.trim().toLowerCase();
-  const pokedex = getBoxId("pokedex");
-  pokedex.innerHTML = "";
+  const SEARCH_INPUT = getBoxId("search_input").value.trim().toLowerCase();
+  const POKEDEX_REF = getBoxId("pokedex");
+  POKEDEX_REF.innerHTML = "";
   for (let i = 0; i < POKEMONS.length; i++) {
     const pokemon = POKEMONS[i];
     const pokemonName = pokemon.name;
-    if (pokemonName.includes(searchInput)) {
-      pokedex.innerHTML += getPokedexCard(pokemonName, pokemon.id, pokemon.sprite_front, pokemon.types);
+    if (pokemonName.includes(SEARCH_INPUT)) {
+      POKEDEX_REF.innerHTML += getPokedexCard(pokemonName, pokemon.id, pokemon.sprite_front, pokemon.types);
     }
+  }
+  if (POKEDEX_REF.innerHTML == "") {
+    console.log("emty");
   }
 }
 
@@ -100,4 +107,12 @@ function closeLoadingScreen() {
   if (!POKEMONS.length > 0) return;
   const dialog = getBoxId("loading_screen");
   dialog.close();
+}
+
+function resetInput() {
+  const SEARCH_INPUT = getBoxId("search_input");
+  const POKEDEX = getBoxId("pokedex");
+  SEARCH_INPUT.value = "";
+  POKEDEX.innerHTML = "";
+  renderPokemons();
 }

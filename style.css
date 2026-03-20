@@ -130,8 +130,32 @@ main {
   gap: 8px;
   padding: var(--spacing-sm);
 
-  .serch-container {
-    color: white;
+  .search-container {
+    display: flex;
+    gap: 4px;
+    .search-box {
+      color: white;
+      display: grid;
+      input {
+        padding: 4px 32px 4px 8px;
+        grid-area: 1/1;
+        font-family: var(--pixel1);
+      }
+      .reset-search {
+        grid-area: 1/1;
+        width: 24px;
+        height: 24px;
+        z-index: 2;
+        background-image: url(./assets/img/refresh.svg);
+        justify-self: flex-end;
+        align-self: center;
+      }
+    }
+    .search-btn {
+      background-image: url(./assets/img/magnifying-glass.svg);
+      width: 32px;
+      height: 32px;
+    }
   }
 
   .load-more {
@@ -142,13 +166,32 @@ main {
     font-size: 18px;
     padding: 0 16px;
     transition: transform 0.2s ease-in-out;
+
     &:hover {
       transform: scale(1.05);
       cursor: pointer;
     }
+
     &:active {
       transform: scale(1);
     }
+  }
+}
+
+.btn {
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 }
 

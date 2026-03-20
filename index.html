@@ -21,7 +21,7 @@
 
     <title>Pokedex</title>
   </head>
-  <body onload="init()" class="">
+  <body onload="init()" class="ope">
     <header id="pokedex-header">
       <div class="header-container max-dp">
         <span class="head-faces1"></span>
@@ -35,8 +35,12 @@
 
     <main class="max-dp">
       <nav class="nav-main">
-        <section class="serch-container">
-          <input type="text" id="search_input" placeholder="🔍 for Pokemon.." />
+        <section class="search-container">
+          <div class="search-box">
+            <input type="text" id="search_input" placeholder="🔍 for Pokemon.." />
+            <button class="btn reset-search" id="reset_btn"></button>
+          </div>
+          <button class="btn search-btn" id="search_btn"></button>
         </section>
         <button onclick="getPokemons()" class="btn load-more">load more pokemon</button>
       </nav>
