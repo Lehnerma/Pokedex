@@ -23,7 +23,7 @@ function closePokeCard() {
   openLoadingScreen();
   document.body.style.overflow = "";
   const DIALOG_REF = getBoxId("pokecard_dialog");
-  resetInput();
+  // resetInput();
   closeLoadingScreen();
   DIALOG_REF.close();
 }
@@ -61,8 +61,21 @@ function nextCardBtn(pokemon) {
   const NEW_BTN_RIGHT = BTN_RIGHT.cloneNode(true);
   BTN_LEFT.replaceWith(NEW_BTN_LEFT);
   BTN_RIGHT.replaceWith(NEW_BTN_RIGHT);
-  NEW_BTN_LEFT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID - 1)));
-  NEW_BTN_RIGHT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID + 1)));
+
+  checkSearchResults(CURRENT_ID, NEW_BTN_LEFT, NEW_BTN_RIGHT);
+}
+
+function checkSearchResults(CURRENT_ID, BTN_LEFT, BTN_RIGHT) {
+  if (SEARCH_RESULTS.length > 0) {
+    const CURRENT_INDEX = SEARCH_RESULTS.findIndex((p) => p.id == CURRENT_ID);
+    const PREV_INDEX = CURRENT_INDEX <= 0 ? SEARCH_RESULTS.length - 1 : CURRENT_INDEX - 1;
+    const NEXT_INDEX = CURRENT_INDEX >= SEARCH_RESULTS.length - 1 ? 0 : CURRENT_INDEX + 1;
+    BTN_LEFT.addEventListener("click", () => renderPokemonCard(SEARCH_RESULTS[PREV_INDEX].id));
+    BTN_RIGHT.addEventListener("click", () => renderPokemonCard(SEARCH_RESULTS[NEXT_INDEX].id));
+  } else {
+    BTN_LEFT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID - 1)));
+    BTN_RIGHT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID + 1)));
+  }
 }
 
 function checkId(cur_id) {
@@ -85,10 +98,10 @@ function renderBaseData(pokemon) {
   const NUMBER = `<b>#${pokemon.id}</b>`;
   const WEIGHT = `<b>WT.</b> ${hgToKg(pokemon.weight)}kg`;
   const HEIGHT = `<b>HT.</b> ${ftToM(pokemon.height)}m`;
-  renderData(NAME, "card_name");
-  renderData(NUMBER, "number");
-  renderData(WEIGHT, "weight");
-  renderData(HEIGHT, "height");
+  renderDatas(NAME, "card_name");
+  renderDatas(NUMBER, "number");
+  renderDatas(WEIGHT, "weight");
+  renderDatas(HEIGHT, "height");
 }
 
 function renderStatsContent(pokemon) {
