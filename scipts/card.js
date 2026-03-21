@@ -55,8 +55,12 @@ function nextCardBtn(pokemon) {
   let CURRENT_ID = pokemon.id;
   const BTN_LEFT = getBoxId("left");
   const BTN_RIGHT = getBoxId("right");
-  BTN_LEFT.addEventListener("click", () => renderPokemonCard(checkId(--CURRENT_ID)));
-  BTN_RIGHT.addEventListener("click", () => renderPokemonCard(checkId(++CURRENT_ID)));
+  const NEW_BTN_LEFT = BTN_LEFT.cloneNode(true);
+  const NEW_BTN_RIGHT = BTN_RIGHT.cloneNode(true);
+  BTN_LEFT.replaceWith(NEW_BTN_LEFT);
+  BTN_RIGHT.replaceWith(NEW_BTN_RIGHT);
+  NEW_BTN_LEFT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID - 1)));
+  NEW_BTN_RIGHT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID + 1)));
 }
 
 function checkId(cur_id) {
