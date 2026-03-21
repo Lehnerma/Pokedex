@@ -148,6 +148,9 @@ main {
       grid-area: 1/1;
       font-family: var(--pixel1);
     }
+    input:invalid:not(:placeholder-shown) {
+      border: 2px solid var(--ball-red);
+    }
     .reset-search {
       grid-area: 1/1;
       width: 24px;
@@ -192,8 +195,21 @@ main {
   }
 }
 
-.pokedex {
-  overflow-y: auto;
+.nothing-found-container {
+  justify-self: center;
+  display: flex;
+  .knofensa {
+    width: 100%;
+    max-width: 150px;
+  }
+  p {
+    align-self: center;
+    text-align: center;
+  }
+  @media (max-width: 460px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 
 .loading-screen {

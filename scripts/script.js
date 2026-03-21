@@ -90,6 +90,7 @@ function saveDataToPokemon(pokemon, data) {
 
 function searchPokemon() {
   const SEARCH_INPUT = getBoxId("search_input").value.trim().toLowerCase();
+  if (SEARCH_INPUT.length < 3) return;
   const POKEDEX_REF = getBoxId("pokedex");
   POKEDEX_REF.innerHTML = "";
   for (let i = 0; i < POKEMONS.length; i++) {
@@ -100,7 +101,7 @@ function searchPokemon() {
     }
   }
   if (POKEDEX_REF.innerHTML == "") {
-    // implement a 404 not found pic.
+    POKEDEX_REF.innerHTML = nothingFoundTemplate();
   }
 }
 
