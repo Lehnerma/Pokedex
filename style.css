@@ -124,57 +124,64 @@ main {
   width: 100%;
   background-color: var(--ball-black);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 8px;
-  padding: var(--spacing-sm);
+  justify-content: center;
 
-  .search-container {
+  .nav-main-container {
     display: flex;
-    gap: 4px;
-    .search-box {
-      color: white;
-      display: grid;
-      input {
-        padding: 4px 32px 4px 8px;
-        grid-area: 1/1;
-        font-family: var(--pixel1);
-      }
-      .reset-search {
-        grid-area: 1/1;
-        width: 24px;
-        height: 24px;
-        z-index: 2;
-        background-image: url(./assets/img/refresh.svg);
-        justify-self: flex-end;
-        align-self: center;
-      }
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 8px;
+    padding: var(--spacing-sm);
+    width: 100%;
+  }
+}
+
+.search-container {
+  display: flex;
+  gap: 4px;
+  .search-box {
+    color: white;
+    display: grid;
+    input {
+      padding: 4px 32px 4px 8px;
+      grid-area: 1/1;
+      font-family: var(--pixel1);
     }
-    .search-btn {
-      background-image: url(./assets/img/magnifying-glass.svg);
-      width: 32px;
-      height: 32px;
+    .reset-search {
+      grid-area: 1/1;
+      width: 24px;
+      height: 24px;
+      z-index: 2;
+      background-image: url(./assets/img/refresh.svg);
+      justify-self: flex-end;
+      align-self: center;
     }
   }
 
-  .load-more {
-    color: rgb(0, 0, 0);
-    background: var(--gold-bg);
-    font-family: var(--lato);
-    border-radius: 8px;
-    font-size: 18px;
-    padding: 0 16px;
-    transition: transform 0.2s ease-in-out;
+  .search-btn {
+    background-image: url(./assets/img/magnifying-glass.svg);
+    width: 32px;
+    height: 32px;
+  }
+}
 
-    &:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-    }
+.load-more {
+  color: rgb(0, 0, 0);
+  background: var(--gold-bg);
+  font-family: var(--lato);
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 0 16px;
+  transition: transform 0.2s ease-in-out;
 
-    &:active {
-      transform: scale(1);
-    }
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(1);
   }
 }
 

@@ -32,27 +32,7 @@ function ftToM(value) {
   return Number(RESULT);
 }
 
-function saveToLocal() {
-  const data = JSON.stringify(POKEMONS);
-  console.log(data);
-  localStorage.setItem("pokemons", data);
-}
-
-function loadFromLocal() {
-  const obj = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
-  POKEMONS = obj;
-  showPokemons();
-}
-
 function loadCurrentTab() {
   const CURRENT_TAB = localStorage.getItem("current-tab");
   return CURRENT_TAB;
-}
-
-function saveLocal() {
-  if (confirm("Would you store the array local?")) {
-    saveToLocal();
-  } else {
-    return;
-  }
 }
