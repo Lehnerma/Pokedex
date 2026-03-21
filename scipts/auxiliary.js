@@ -33,14 +33,14 @@ function ftToM(value) {
 }
 
 function saveToLocal() {
-  const data = JSON.stringify(POKEMONS);
-  console.log(data);
-  localStorage.setItem("pokemons", data);
+  const DATA = JSON.stringify(POKEMONS);
+  console.log(DATA);
+  localStorage.setItem("pokemons", DATA);
 }
 
 function loadFromLocal() {
-  const obj = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
-  POKEMONS = obj;
+  const OBJ = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
+  POKEMONS = OBJ;
   showPokemons();
 }
 
