@@ -93,7 +93,7 @@ function searchPokemon() {
     }
   }
   if (POKEDEX_REF.innerHTML == "") {
-    console.log("emty");
+    // display for no pokemon found
   }
 }
 

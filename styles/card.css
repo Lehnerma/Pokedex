@@ -195,10 +195,12 @@
 
       &:hover {
         transform: scale(1.1);
+        cursor: url(/assets/img/pointer/pokeball_pointer.svg) 15 15, pointer;
       }
 
       &:active {
         transform: scale(0.9);
+        cursor: url(/assets/img/pointer/pokeball_pointer.svg) 15 15, pointer;
       }
     }
 
