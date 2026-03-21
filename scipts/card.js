@@ -8,22 +8,22 @@ function initCard() {
 
 function openPokeCard() {
   document.body.style.overflow = "hidden";
-  const dialog = getBoxId("pokecard_dialog");
-  dialog.showModal();
+  const DIALOG_REF = getBoxId("pokecard_dialog");
+  DIALOG_REF.showModal();
 }
 
 function pokecardClose(event) {
-  let dialogRef = getBoxId("pokecard_dialog");
-  if (event.target == dialogRef) {
+  let DIALOG_REF = getBoxId("pokecard_dialog");
+  if (event.target == DIALOG_REF) {
     closePokeCard();
   }
 }
 
 function closePokeCard() {
   document.body.style.overflow = "";
-  const dialog = getBoxId("pokecard_dialog");
+  const DIALOG_REF = getBoxId("pokecard_dialog");
   resetInput();
-  dialog.close();
+  DIALOG_REF.close();
 }
 
 function openPokemonCard(event) {
