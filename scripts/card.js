@@ -20,10 +20,12 @@ function pokecardClose(event) {
 }
 
 function closePokeCard() {
+  openLoadingScreen();
   document.body.style.overflow = "";
   const DIALOG_REF = getBoxId("pokecard_dialog");
   resetInput();
   DIALOG_REF.close();
+  closeLoadingScreen();
 }
 
 function openPokemonCard(event) {
