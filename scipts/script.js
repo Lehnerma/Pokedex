@@ -15,9 +15,9 @@ function initBtn() {
 }
 
 function renderPokemons() {
-  let pokedex = getBoxId("pokedex");
+  let POKEDEX = getBoxId("pokedex");
   for (let i = CURRENT_LENGTH_POKEMONS; i < POKEMONS.length; i++) {
-    pokedex.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
+    POKEDEX.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
   }
 }
 
@@ -56,9 +56,9 @@ async function getPokemonsInfos(pokeArray) {
   await Promise.all(
     pokeArray.map(async (pokemon) => {
       try {
-        const response = await fetch(pokemon.url);
+        const RESPONSE = await fetch(pokemon.url);
         if (!response.ok) throw new Error("Netzwerk Antwort Fehler!");
-        const result = await response.json();
+        const RESULT = await RESPONSE.json();
         saveDataToPokemon(pokemon, result);
       } catch (er) {
         console.error(`fehler für ${pokemon.name}: `, er);
@@ -86,27 +86,27 @@ function searchPokemon() {
   const POKEDEX_REF = getBoxId("pokedex");
   POKEDEX_REF.innerHTML = "";
   for (let i = 0; i < POKEMONS.length; i++) {
-    const pokemon = POKEMONS[i];
-    const pokemonName = pokemon.name;
-    if (pokemonName.includes(SEARCH_INPUT)) {
-      POKEDEX_REF.innerHTML += getPokedexCard(pokemonName, pokemon.id, pokemon.sprite_front, pokemon.types);
+    const POKEMON = POKEMONS[i];
+    const POKEMON_NAME = POKEMON.name;
+    if (POKEMON_NAME.includes(SEARCH_INPUT)) {
+      POKEDEX_REF.innerHTML += getPokedexCard(POKEMON_NAME, POKEMON.id, POKEMON.sprite_front, POKEMON.types);
     }
   }
   if (POKEDEX_REF.innerHTML == "") {
-    console.log("emty");
+    // implement a 404 not found pic.
   }
 }
 
 function openLoadingScreen() {
   if (!POKEMONS.length > 0) return;
-  const dialog = getBoxId("loading_screen");
-  dialog.showModal();
+  const DIALOG = getBoxId("loading_screen");
+  DIALOG.showModal();
 }
 
 function closeLoadingScreen() {
   if (!POKEMONS.length > 0) return;
-  const dialog = getBoxId("loading_screen");
-  dialog.close();
+  const DIALOG = getBoxId("loading_screen");
+  DIALOG.close();
 }
 
 function resetInput() {
