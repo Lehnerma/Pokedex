@@ -13,16 +13,15 @@
     <link rel="stylesheet" href="./styles/card.css" />
     <link rel="stylesheet" href="./styles/utilities.css" />
 
-    <script src="./scipts/templets.js"></script>
-    <script src="./scipts/utilities.js"></script>
-    <script src="./scipts/data.js"></script>
-    <script src="./scipts/card.js"></script>
-
-    <script src="./scipts/script.js"></script>
+    <script src="./scripts/templets.js"></script>
+    <script src="./scripts/utilities.js"></script>
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/card.js"></script>
+    <script src="./scripts/script.js"></script>
 
     <title>Pokedex</title>
   </head>
-  <body onload="init()" class="ope">
+  <body onload="init()" class="">
     <header id="pokedex-header">
       <div class="header-container max-dp">
         <span class="head-faces1"></span>
@@ -39,7 +38,7 @@
         <div class="nav-main-container max-dp">
           <section class="search-container">
             <div class="search-box">
-              <input type="text" id="search_input" placeholder="🔍 for Pokemon.." />
+              <input type="text" id="search_input" minlength="3" placeholder="🔍 for Pokemon.." />
               <button class="btn reset-search" id="reset_btn"></button>
             </div>
             <button class="btn search-btn" id="search_btn"></button>

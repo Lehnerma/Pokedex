@@ -37,3 +37,11 @@ function typeTemplet(type, typeSrc) {
   return `
 <img src="${typeSrc}" alt="${type}" class="type" />`;
 }
+
+function nothingFoundTemplate() {
+  return `
+<div class="nothing-found-container">
+  <p class="title">Nothing found with this input. Go and catch them all!</p>
+  <img src="./assets/img/knofensa.svg" alt="Knofensa" class="knofensa" />
+</div>`;
+}
