@@ -90,7 +90,7 @@ function saveDataToPokemon(pokemon, data) {
 
 function searchPokemon() {
   const SEARCH_INPUT = getBoxId("search_input").value.trim().toLowerCase();
-  if (SEARCH_INPUT.length < 3) return;
+  if (SEARCH_INPUT.length < 3 && SEARCH_INPUT > 0) return;
   const POKEDEX_REF = getBoxId("pokedex");
   POKEDEX_REF.innerHTML = "";
   for (let i = 0; i < POKEMONS.length; i++) {
