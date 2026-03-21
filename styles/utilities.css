@@ -20,3 +20,9 @@
 .testing {
   border: solid red 1px;
 }
+
+button {
+  &:hover {
+    cursor: url(/assets/img/pointer/pokeball_pointer.svg) 15 15, pointer;
+  }
+}

@@ -27,6 +27,7 @@
     background-color: #b9b9b9;
     transform: scale(1.04);
     box-shadow: 0 0 2px 2px var(--gold-old);
+    cursor: url(/assets/img/pointer/pokeball_pointer.svg) 15 15, pointer;
   }
 }
 
