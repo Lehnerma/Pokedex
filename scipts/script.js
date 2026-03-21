@@ -21,6 +21,13 @@ function renderPokemons() {
   }
 }
 
+function renderAllPokemons() {
+  let POKEDEX = getBoxId("pokedex");
+  for (let i = 0; i < POKEMONS.length; i++) {
+    POKEDEX.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
+  }
+}
+
 function addClassBody() {
   document.body.classList.add("open");
 }
@@ -114,5 +121,5 @@ function resetInput() {
   const POKEDEX = getBoxId("pokedex");
   SEARCH_INPUT.value = "";
   POKEDEX.innerHTML = "";
-  renderPokemons();
+  renderAllPokemons();
 }
