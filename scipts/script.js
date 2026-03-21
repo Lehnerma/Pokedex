@@ -47,7 +47,12 @@ async function getPokemons() {
   } catch (er) {
     console.error(er);
   }
-  renderPokemons();
+  const ACTIVE_SEARCH = getBoxId("search_input").value.trim();
+  if (ACTIVE_SEARCH) {
+    searchPokemon();
+  } else {
+    renderPokemons();
+  }
   closeLoadingScreen();
   OFFSET_FOR_URL = POKEMONS.length;
 }
@@ -114,5 +119,6 @@ function resetInput() {
   const POKEDEX = getBoxId("pokedex");
   SEARCH_INPUT.value = "";
   POKEDEX.innerHTML = "";
+  CURRENT_LENGTH_POKEMONS = 0;
   renderPokemons();
 }
