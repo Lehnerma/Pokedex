@@ -91,12 +91,14 @@ function saveDataToPokemon(pokemon, data) {
 function searchPokemon() {
   const SEARCH_INPUT = getBoxId("search_input").value.trim().toLowerCase();
   if (SEARCH_INPUT.length < 3 && SEARCH_INPUT > 0) return;
+  SEARCH_RESULTS = [];
   const POKEDEX_REF = getBoxId("pokedex");
   POKEDEX_REF.innerHTML = "";
   for (let i = 0; i < POKEMONS.length; i++) {
     const POKEMON = POKEMONS[i];
     const POKEMON_NAME = POKEMON.name;
     if (POKEMON_NAME.includes(SEARCH_INPUT)) {
+      SEARCH_RESULTS.push(POKEMON);
       POKEDEX_REF.innerHTML += getPokedexCard(POKEMON_NAME, POKEMON.id, POKEMON.sprite_front, POKEMON.types);
     }
   }
@@ -121,6 +123,7 @@ function resetInput() {
   const SEARCH_INPUT = getBoxId("search_input");
   const POKEDEX = getBoxId("pokedex");
   SEARCH_INPUT.value = "";
+  SEARCH_RESULTS = [];
   POKEDEX.innerHTML = "";
   renderAllPokemons();
 }

@@ -20,12 +20,9 @@ function pokecardClose(event) {
 }
 
 function closePokeCard() {
-  openLoadingScreen();
   document.body.style.overflow = "";
   const DIALOG_REF = getBoxId("pokecard_dialog");
-  resetInput();
   DIALOG_REF.close();
-  closeLoadingScreen();
 }
 
 function openPokemonCard(event) {
@@ -61,8 +58,16 @@ function nextCardBtn(pokemon) {
   const NEW_BTN_RIGHT = BTN_RIGHT.cloneNode(true);
   BTN_LEFT.replaceWith(NEW_BTN_LEFT);
   BTN_RIGHT.replaceWith(NEW_BTN_RIGHT);
-  NEW_BTN_LEFT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID - 1)));
-  NEW_BTN_RIGHT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID + 1)));
+  if (SEARCH_RESULTS.length > 0) {
+    const CURRENT_INDEX = SEARCH_RESULTS.findIndex((p) => p.id === CURRENT_ID);
+    const PREV_INDEX = CURRENT_INDEX <= 0 ? SEARCH_RESULTS.length - 1 : CURRENT_INDEX - 1;
+    const NEXT_INDEX = CURRENT_INDEX >= SEARCH_RESULTS.length - 1 ? 0 : CURRENT_INDEX + 1;
+    NEW_BTN_LEFT.addEventListener("click", () => renderPokemonCard(SEARCH_RESULTS[PREV_INDEX].id));
+    NEW_BTN_RIGHT.addEventListener("click", () => renderPokemonCard(SEARCH_RESULTS[NEXT_INDEX].id));
+  } else {
+    NEW_BTN_LEFT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID - 1)));
+    NEW_BTN_RIGHT.addEventListener("click", () => renderPokemonCard(checkId(CURRENT_ID + 1)));
+  }
 }
 
 function checkId(cur_id) {
