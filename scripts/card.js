@@ -98,10 +98,10 @@ function renderBaseData(pokemon) {
   const NUMBER = `<b>#${pokemon.id}</b>`;
   const WEIGHT = `<b>WT.</b> ${hgToKg(pokemon.weight)}kg`;
   const HEIGHT = `<b>HT.</b> ${ftToM(pokemon.height)}m`;
-  renderDatas(NAME, "card_name");
-  renderDatas(NUMBER, "number");
-  renderDatas(WEIGHT, "weight");
-  renderDatas(HEIGHT, "height");
+  renderData(NAME, "card_name");
+  renderData(NUMBER, "number");
+  renderData(WEIGHT, "weight");
+  renderData(HEIGHT, "height");
 }
 
 function renderStatsContent(pokemon) {
