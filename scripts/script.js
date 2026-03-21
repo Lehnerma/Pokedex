@@ -111,10 +111,10 @@ function openLoadingScreen() {
   DIALOG.showModal();
 }
 
-function closeLoadingScreen() {
+async function closeLoadingScreen() {
   if (!POKEMONS.length > 0) return;
   const DIALOG = getBoxId("loading_screen");
-  DIALOG.close();
+  setTimeout(() => DIALOG.close(), 500);
 }
 
 function resetInput() {

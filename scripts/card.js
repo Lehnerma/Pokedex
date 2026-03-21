@@ -24,8 +24,8 @@ function closePokeCard() {
   document.body.style.overflow = "";
   const DIALOG_REF = getBoxId("pokecard_dialog");
   resetInput();
-  DIALOG_REF.close();
   closeLoadingScreen();
+  DIALOG_REF.close();
 }
 
 function openPokemonCard(event) {
