@@ -92,14 +92,16 @@ function searchPokemon() {
   const SEARCH_INPUT = getBoxId("search_input").value.trim().toLowerCase();
   if (SEARCH_INPUT.length < 3 && SEARCH_INPUT > 0) return;
   const POKEDEX_REF = getBoxId("pokedex");
+  SEARCH_RESULTS = [];
   POKEDEX_REF.innerHTML = "";
   for (let i = 0; i < POKEMONS.length; i++) {
     const POKEMON = POKEMONS[i];
-    const POKEMON_NAME = POKEMON.name;
-    if (POKEMON_NAME.includes(SEARCH_INPUT)) {
-      POKEDEX_REF.innerHTML += getPokedexCard(POKEMON_NAME, POKEMON.id, POKEMON.sprite_front, POKEMON.types);
+    if (POKEMON.name.includes(SEARCH_INPUT)) {
+      SEARCH_RESULTS.push(POKEMON);
+      POKEDEX_REF.innerHTML += getPokedexCard(POKEMON.name, POKEMON.id, POKEMON.sprite_front, POKEMON.types);
     }
   }
+
   if (POKEDEX_REF.innerHTML == "") {
     POKEDEX_REF.innerHTML = nothingFoundTemplate();
   }
@@ -122,5 +124,6 @@ function resetInput() {
   const POKEDEX = getBoxId("pokedex");
   SEARCH_INPUT.value = "";
   POKEDEX.innerHTML = "";
+  SEARCH_RESULTS = [];
   renderAllPokemons();
 }
