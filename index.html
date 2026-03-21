@@ -33,19 +33,21 @@
       </button>
     </header>
 
-    <main class="max-dp">
+    <main class="">
       <nav class="nav-main">
-        <section class="search-container">
-          <div class="search-box">
-            <input type="text" id="search_input" placeholder="🔍 for Pokemon.." />
-            <button class="btn reset-search" id="reset_btn"></button>
-          </div>
-          <button class="btn search-btn" id="search_btn"></button>
-        </section>
-        <button onclick="getPokemons()" class="btn load-more">load more pokemon</button>
+        <div class="nav-main-container max-dp">
+          <section class="search-container">
+            <div class="search-box">
+              <input type="text" id="search_input" placeholder="🔍 for Pokemon.." />
+              <button class="btn reset-search" id="reset_btn"></button>
+            </div>
+            <button class="btn search-btn" id="search_btn"></button>
+          </section>
+          <button onclick="getPokemons()" class="btn load-more">load more pokemon</button>
+        </div>
       </nav>
 
-      <div class="pokedex" id="pokedex"></div>
+      <div class="pokedex max-dp" id="pokedex"></div>
 
       <dialog id="pokecard_dialog" class="pokecard-dialog card-shimmer-border">
         <div class="pokemon-card">
@@ -91,7 +93,7 @@
     </main>
 
     <footer id="pokedex-footer">
-      <section class="footer-container">
+      <section class="footer-container max-dp">
         <p>by:</p>
         <img src="./assets/img/lm_logo.png" alt="logo" class="logo" />
         <p>Maximilian Lehner <br />2026</p>

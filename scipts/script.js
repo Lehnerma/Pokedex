@@ -57,9 +57,9 @@ async function getPokemonsInfos(pokeArray) {
     pokeArray.map(async (pokemon) => {
       try {
         const RESPONSE = await fetch(pokemon.url);
-        if (!response.ok) throw new Error("Netzwerk Antwort Fehler!");
+        if (!RESPONSE.ok) throw new Error("Netzwerk Antwort Fehler!");
         const RESULT = await RESPONSE.json();
-        saveDataToPokemon(pokemon, result);
+        saveDataToPokemon(pokemon, RESULT);
       } catch (er) {
         console.error(`fehler für ${pokemon.name}: `, er);
       }

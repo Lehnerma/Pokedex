@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
   padding: var(--spacing-sm);
+  justify-self: center;
+  width: 100%;
 }
 
 .pokedex-card {
