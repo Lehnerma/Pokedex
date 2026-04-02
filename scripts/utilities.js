@@ -68,10 +68,15 @@ function ftToM(value) {
   return Number(RESULT);
 }
 
+/**
+ * To get the last tab what was opend. 
+ * @returns {*} -> the last opend tab in the card view of the Pokémon
+ */
 function loadCurrentTab() {
   const CURRENT_TAB = localStorage.getItem("current-tab");
   return CURRENT_TAB;
 }
+
 
 function loadFromLocal() {
   const obj = JSON.parse(localStorage.getItem("pokemons")) ?? "null";
@@ -79,6 +84,10 @@ function loadFromLocal() {
   showPokemons();
 }
 
+/**
+ * Query for a local storage.
+ * @returns {function} -> the function saveToLocal will save the datas to the local sotrage
+ */
 function saveLocal() {
   if (confirm("Would you store the array local?")) {
     saveToLocal();
@@ -87,6 +96,9 @@ function saveLocal() {
   }
 }
 
+/**
+ * Save the loadet Pokémons local
+ */
 function saveToLocal() {
   const data = JSON.stringify(POKEMONS);
   console.log(data);
