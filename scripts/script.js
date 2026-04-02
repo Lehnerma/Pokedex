@@ -5,10 +5,10 @@ function init() {
 
 function initBtn() {
   const BALL_BTN = document.getElementById("ball_btn");
-  BALL_BTN.addEventListener("click", () => openBall(BALL_BTN));
   const SEARCH = getBoxId("search_input");
   const SEARCH_BTN = getBoxId("search_btn");
   const RESET_SEARCH_BTN = getBoxId("reset_btn");
+  BALL_BTN.addEventListener("click", () => openBall(BALL_BTN));
   SEARCH.addEventListener("change", searchPokemon);
   SEARCH_BTN.addEventListener("click", searchPokemon);
   RESET_SEARCH_BTN.addEventListener("click", resetInput);
@@ -56,6 +56,7 @@ async function getPokemons() {
   }
   renderPokemons();
   closeLoadingScreen();
+  saveToLocal();
   OFFSET_FOR_URL = POKEMONS.length;
 }
 
