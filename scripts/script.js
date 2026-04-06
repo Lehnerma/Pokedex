@@ -134,24 +134,32 @@ function searchPokemon() {
       POKEDEX_REF.innerHTML += getPokedexCard(POKEMON.name, POKEMON.id, POKEMON.sprite_front, POKEMON.types);
     }
   }
-
   if (POKEDEX_REF.innerHTML == "") {
     POKEDEX_REF.innerHTML = nothingFoundTemplate();
   }
 }
 
+/**
+ * Opens the loading screen - if the fetching the api takes longer
+ */
 function openLoadingScreen() {
   if (!POKEMONS.length > 0) return;
   const DIALOG = getBoxId("loading_screen");
   DIALOG.showModal();
 }
 
+/**
+ * Closes the loading screen
+ */
 async function closeLoadingScreen() {
   if (!POKEMONS.length > 0) return;
   const DIALOG = getBoxId("loading_screen");
   setTimeout(() => DIALOG.close(), 500);
 }
 
+/**
+ * Resets the input for the search input
+ */
 function resetInput() {
   const SEARCH_INPUT = getBoxId("search_input");
   const POKEDEX = getBoxId("pokedex");
