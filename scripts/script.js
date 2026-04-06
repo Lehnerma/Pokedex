@@ -3,6 +3,9 @@ function init() {
   initCard();
 }
 
+/**
+ * Initializes all buttons
+ */
 function initBtn() {
   const BALL_BTN = document.getElementById("ball_btn");
   const SEARCH = getBoxId("search_input");
@@ -14,6 +17,9 @@ function initBtn() {
   RESET_SEARCH_BTN.addEventListener("click", resetInput);
 }
 
+/**
+ * Render the new Pokémons with the load more button
+ */
 function renderPokemons() {
   let POKEDEX = getBoxId("pokedex");
   for (let i = CURRENT_LENGTH_POKEMONS; i < POKEMONS.length; i++) {
@@ -21,6 +27,9 @@ function renderPokemons() {
   }
 }
 
+/**
+ * Render all Pokémons from the Array (POKEMONS)
+ */
 function renderAllPokemons() {
   let POKEDEX = getBoxId("pokedex");
   for (let i = 0; i < POKEMONS.length; i++) {
@@ -28,10 +37,17 @@ function renderAllPokemons() {
   }
 }
 
+/**
+ * Adds the class 'open' to the body to geht the animation of the opening pokeball
+ */
 function addClassBody() {
   document.body.classList.add("open");
 }
 
+/**
+ * 
+ * @param {*} btn - to togggle the 'shake' animation with for opening the pokeball on the landing page 
+ */
 function openBall(btn) {
   btn.classList.add("shake");
   btn.disabled = true;
@@ -42,6 +58,9 @@ function openBall(btn) {
   }, 1500);
 }
 
+/**
+ * fetch the Pokemon list with the ID and the info link
+ */
 async function getPokemons() {
   CURRENT_LENGTH_POKEMONS = POKEMONS.length;
   openLoadingScreen();
@@ -60,6 +79,10 @@ async function getPokemons() {
   OFFSET_FOR_URL = POKEMONS.length;
 }
 
+/**
+ * Fetch the information for the Pokémon that is needed to display the cards.
+ * @param {Array} pokeArray ->  must be the array from the getPokemons() func - the array musst have the url for the Pokémon infos. 
+ */
 async function getPokemonsInfos(pokeArray) {
   await Promise.all(
     pokeArray.map(async (pokemon) => {
@@ -75,6 +98,11 @@ async function getPokemonsInfos(pokeArray) {
   );
 }
 
+/**
+ * Helper function for better, more readable code - saves the necessary information about the respective Pokemon
+ * @param {*} pokemon -> Information about this Pokémon will be stored.
+ * @param {*} data -> The information is stored from this data.
+ */
 function saveDataToPokemon(pokemon, data) {
   pokemon.weight = data.weight;
   pokemon.height = data.height;
@@ -89,6 +117,10 @@ function saveDataToPokemon(pokemon, data) {
   }));
 }
 
+/**
+ * Pokémon that begin with or contain the letters in the search results.
+ * @returns The Pokémons of the search.
+ */
 function searchPokemon() {
   const SEARCH_INPUT = getBoxId("search_input").value.trim().toLowerCase();
   if (SEARCH_INPUT.length < 3 && SEARCH_INPUT > 0) return;
