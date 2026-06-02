@@ -1,3 +1,6 @@
+/**
+ * Entry point — wires up buttons and the card overlay on page load.
+ */
 function init() {
   initBtn();
   initCard();
@@ -21,7 +24,7 @@ function initBtn() {
  * Render the new Pokémons with the load more button
  */
 function renderPokemons() {
-  let POKEDEX = getBoxId("pokedex");
+  const POKEDEX = getBoxId("pokedex");
   for (let i = CURRENT_LENGTH_POKEMONS; i < POKEMONS.length; i++) {
     POKEDEX.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
   }
@@ -31,7 +34,7 @@ function renderPokemons() {
  * Render all Pokémons from the Array (POKEMONS)
  */
 function renderAllPokemons() {
-  let POKEDEX = getBoxId("pokedex");
+  const POKEDEX = getBoxId("pokedex");
   for (let i = 0; i < POKEMONS.length; i++) {
     POKEDEX.innerHTML += getPokedexCard(POKEMONS[i].name, POKEMONS[i].id, POKEMONS[i].sprite_front, POKEMONS[i].types);
   }
@@ -45,8 +48,8 @@ function addClassBody() {
 }
 
 /**
- * 
- * @param {*} btn - to togggle the 'shake' animation with for opening the pokeball on the landing page 
+ * Triggers the pokeball shake animation, disables the button, then opens the main view.
+ * @param {HTMLElement} btn - The pokeball button element on the landing page.
  */
 function openBall(btn) {
   btn.classList.add("shake");
@@ -118,25 +121,25 @@ function saveDataToPokemon(pokemon, data) {
 }
 
 /**
- * Pokémon that begin with or contain the letters in the search results.
- * @returns The Pokémons of the search.
+ * Filters POKEMONS by name against the given search string.
+ * @param {string} input - Lowercase search string to match against Pokémon names.
+ * @returns {Array} Matching Pokémon objects.
+ */
+const filterPokemons = (input) => POKEMONS.filter((p) => p.name.includes(input));
+
+/**
+ * Reads the search input, filters the Pokémon list and re-renders the pokédex.
  */
 function searchPokemon() {
   const SEARCH_INPUT = getBoxId("search_input").value.trim().toLowerCase();
-  if (SEARCH_INPUT.length < 3 && SEARCH_INPUT > 0) return;
+  if (SEARCH_INPUT.length < 3 && SEARCH_INPUT.length > 0) return;
   const POKEDEX_REF = getBoxId("pokedex");
-  SEARCH_RESULTS = [];
   POKEDEX_REF.innerHTML = "";
-  for (let i = 0; i < POKEMONS.length; i++) {
-    const POKEMON = POKEMONS[i];
-    if (POKEMON.name.includes(SEARCH_INPUT)) {
-      SEARCH_RESULTS.push(POKEMON);
-      POKEDEX_REF.innerHTML += getPokedexCard(POKEMON.name, POKEMON.id, POKEMON.sprite_front, POKEMON.types);
-    }
-  }
-  if (POKEDEX_REF.innerHTML == "") {
-    POKEDEX_REF.innerHTML = nothingFoundTemplate();
-  }
+  SEARCH_RESULTS = filterPokemons(SEARCH_INPUT);
+  SEARCH_RESULTS.forEach((p) => {
+    POKEDEX_REF.innerHTML += getPokedexCard(p.name, p.id, p.sprite_front, p.types);
+  });
+  if (!SEARCH_RESULTS.length) POKEDEX_REF.innerHTML = nothingFoundTemplate();
 }
 
 /**
@@ -151,7 +154,7 @@ function openLoadingScreen() {
 /**
  * Closes the loading screen
  */
-async function closeLoadingScreen() {
+function closeLoadingScreen() {
   if (!POKEMONS.length > 0) return;
   const DIALOG = getBoxId("loading_screen");
   setTimeout(() => DIALOG.close(), 500);

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Pokedex</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 id="pokedex">Pokedex</h1>
+<p>A vanilla JavaScript Pokédex web app. No build tools, no frameworks, no package manager — plain HTML, CSS, and JS served directly in the browser.</p>
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>index.html              # Entry point, loads all CSS and JS
+style.css               # Global base styles
+styles/
+  colors.css            # Pokémon type color variables
+  fonts.css             # Font-face declarations
+  pokedex.css           # Main pokédex layout
+  landing.css           # Landing/pokeball opening screen
+  card.css              # Pokémon detail card styles
+  utilities.css         # Shared utility classes
+scripts/
+  script.js             # Entry point — init(), button + card wiring
+  utilities.js          # DOM helpers (getBoxId, capitalizeFirstLetter, createTypes, getTypeGradient)
+  data.js               # Static data: type gradients, Pokémon data array
+  card.js               # Card open/close logic
+  templets.js           # HTML template strings (innerHTML builders)
+assets/
+  img/                  # SVGs, PNGs, GIF (loading animation)
+  fonts/                # Lato, Cabin, Pixelify Sans, Press Start 2P
+</code></pre>
+<h2 id="conventions">Conventions</h2>
+<ul>
+<li><strong>No modules</strong> — all scripts are loaded via <code>&lt;script&gt;</code> tags in <code>index.html</code> in dependency order. Globals are shared across files intentionally.</li>
+<li><strong>No linter/formatter</strong> — format manually; keep consistent indentation (2 spaces).</li>
+<li><strong>JSDoc comments</strong> on every function. Keep them concise (one-liner description + <code>@param</code>/<code>@returns</code>).</li>
+<li><strong>CSS variables</strong> for all colours and type gradients — defined in <code>styles/colors.css</code>.</li>
+<li><strong>Template strings</strong> for HTML — all innerHTML builders live in <code>templets.js</code>.</li>
+<li><strong>Type icons</strong> are rendered as <code>&lt;span class=&quot;type {typeName}&quot;&gt;</code> elements styled entirely via CSS classes in <code>styles/card.css</code>.</li>
+</ul>
+<h2 id="deployment">Deployment</h2>
+<pre><code class="language-bash">bash up.sh <span class="hljs-string">&quot;commit message&quot;</span>
+</code></pre>
+<p><code>up.sh</code> runs: <code>git pull → git add . → git commit → git push</code>.</p>
+<h2 id="api">API</h2>
+<p>Data is fetched from the <a href="https://pokeapi.co/">PokéAPI</a>. Fetching logic lives in <code>scripts/data.js</code> and <code>scripts/utilities.js</code>.</p>
+<h2 id="key-globals">Key Globals</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Defined in</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POKEMONS</code></td>
+<td><code>data.js</code></td>
+<td>Cached array of fetched Pokémon objects</td>
+</tr>
+<tr>
+<td><code>CURRENT_LENGTH_POKEMONS</code></td>
+<td><code>data.js</code></td>
+<td>Tracks how many Pokémon are rendered (for load-more)</td>
+</tr>
+<tr>
+<td><code>POKEMON_TYPS</code></td>
+<td><code>data.js</code></td>
+<td>Array of type objects with <code>value</code> and <code>gradient</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ruels">Ruels</h2>
+<ul>
+<li>never install npm packages alone - ask evrytime!</li>
+<li>evry change should be documented in the logs/debug.log</li>
+<li>when u change something ask evrytime!</li>
+</ul>
+<h2 id="verhalten">Verhalten</h2>
+<ul>
+<li>Wenn Anforderungen unklar sind: nachfragen, nicht raten</li>
+<li>Lieber eine kurze Rückfrage als falsch umsetzen</li>
+<li>Bei größeren Aufgaben erst den Plan zeigen, dann umsetzen</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

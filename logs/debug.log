@@ -1,0 +1,70 @@
+================================================================================
+DEBUG LOG — scripts/script.js
+Date: 2026-06-02
+================================================================================
+
+6 Verstöße gefunden und behoben.
+
+--------------------------------------------------------------------------------
+[1] FEHLENDES JSDOC — init()
+    Regel   : JSDoc-Kommentar auf jeder Funktion
+    Zeile   : 1
+    Problem : Funktion hatte keinen JSDoc-Block.
+    Fix     : JSDoc-Kommentar mit Beschreibung hinzugefügt.
+--------------------------------------------------------------------------------
+
+[2] let STATT const — renderPokemons()
+    Regel   : const/let korrekt verwenden
+    Zeile   : 24 (alt)
+    Problem : `let POKEDEX = getBoxId("pokedex")` — Variable wird nie neu
+              zugewiesen, muss `const` sein.
+    Fix     : `let` → `const`
+--------------------------------------------------------------------------------
+
+[3] let STATT const — renderAllPokemons()
+    Regel   : const/let korrekt verwenden
+    Zeile   : 34 (alt)
+    Problem : `let POKEDEX = getBoxId("pokedex")` — gleicher Verstoß wie [2].
+    Fix     : `let` → `const`
+--------------------------------------------------------------------------------
+
+[4] LEERE JSDOC-BESCHREIBUNG — openBall()
+    Regel   : JSDoc vollständig (Beschreibungszeile + @param/@returns)
+    Zeilen  : 48–49 (alt)
+    Problem : Erste JSDoc-Zeile war leer; nur @param vorhanden, keine
+              Funktionsbeschreibung.
+    Fix     : Beschreibungszeile ergänzt:
+              "Triggers the pokeball shake animation, disables the button,
+               then opens the main view."
+              @param-Typ von `{*}` auf `{HTMLElement}` präzisiert.
+--------------------------------------------------------------------------------
+
+[5] DREI VERSTÖSSE — searchPokemon()
+    Regel A : Max 14 Zeilen pro Funktion (Leerzeilen ausgenommen)
+    Zeilen  : 124–140 (alt) → 15 nicht-leere Zeilen
+    Fix A   : Filterlogik in eigene Arrow-Funktion `filterPokemons(input)`
+              ausgelagert. searchPokemon() hat jetzt 9 Zeilen.
+
+    Regel B : JSDoc korrekt — kein @returns ohne Rückgabewert
+    Problem : `@returns The Pokémons of the search.` — Funktion gibt nichts
+              zurück (kein return-Statement mit Wert).
+    Fix B   : @returns-Tag entfernt.
+
+    Regel C : Logik-Bug — Guard-Bedingung feuerte nie
+    Zeile   : 126 (alt)
+    Problem : `if (SEARCH_INPUT.length < 3 && SEARCH_INPUT > 0)`
+              `SEARCH_INPUT` ist ein String; Stringvergleich mit `> 0` ergibt
+              immer `false` (NaN > 0). Der Guard hat nie gegriffen.
+    Fix C   : `SEARCH_INPUT > 0` → `SEARCH_INPUT.length > 0`
+--------------------------------------------------------------------------------
+
+[6] UNNÖTIGES async — closeLoadingScreen()
+    Regel   : async/await nur bei fetch-Aufrufen verwenden
+    Zeile   : 154 (alt)
+    Problem : Funktion war als `async` deklariert, enthält aber kein `await`.
+              Kein Fetch-Aufruf vorhanden — `setTimeout` ist synchron.
+    Fix     : `async` keyword entfernt.
+--------------------------------------------------------------------------------
+
+Alle 6 Verstöße behoben. Keine weiteren Abweichungen gefunden.
+================================================================================
